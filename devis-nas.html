@@ -7,7 +7,7 @@
     <link href="./css/reset.css" rel="stylesheet" />
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/header.css" rel="stylesheet" />
-    <link href="./css/home-main.css" rel="stylesheet" />
+    <link href="./css/nas-main.css" rel="stylesheet" />
     <link href="./css/modal.css" rel="stylesheet" />
 
     <title>Admissions - SJDD</title>
@@ -18,15 +18,10 @@
         <div>
             <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
             <nav>
-                <a href="index.html" class="active">Accueil</a>
+                <a href="index.html">Accueil</a>
                 <a href="mineurs.html">Relance mineurs</a>
-<<<<<<< HEAD
-                <a href="devis-hn.html">Devis HN</a>
-                <a href="#">Devis NAS</a>
-=======
-                <a href="devis-nas.html">Devis NAS</a>
+                <a href="devis-nas.html" class="active">Devis NAS</a>
                 <a href="#">Devis HN</a>
->>>>>>> 62b01ef (feature/mail-nas done.)
             </nav>
         </div>
         <div id="date-prepa">
@@ -35,23 +30,22 @@
         </div>
     </header>
     <main>
-        <h1>Boite à outils admission Saint-Jean de Dieu</h1>
-        <p>Bienvenue sur la boite à outils du service admission de la clinique Saint-Jean de Dieu</p>
+        <h1>Demande de devis pour patient Non Assuré Social</h1>
 
-        <p>Vous trouverez sur ces pages différents outils vous permettant de travailler plus rapidement et plus
-            efficatement</p>
+        <form id="devis-nas">
+            <h2>Informations sur le patient</h2>
+                <label for="patient-name">Nom et prénom du patient :</label>
+                <input type="text" id="patient-name" name="patient-name" required>
+            
+                <label for="patient-dob">Date de naissance du patient :</label>
+                <input type="date" id="patient-dob" name="patient-dob" required>
+            
+                <label for="intervention-description">Description de l'intervention :</label>
+                <textarea id="intervention-description" name="intervention-description" rows="4" required></textarea>
 
-        <p>Les outils disponibles pour l'instant sont les suivants : </p>
-        <ul>
-            <li><a href="mineurs.html">Mail de relance pour les patients mineurs</a></li>
-<<<<<<< HEAD
-            <li><a href="devis-hn.html">Mail type pour demander un devis au service facturation<br>Non Assuré Social</a></li>
-=======
-            <li><a href="devis-nas.html">Mail type pour demander un devis au service facturation<br>Non Assuré Social</a></li>
->>>>>>> 62b01ef (feature/mail-nas done.)
-            <li><a href="#">Mail type pour demander le devis à un médecin pour une intervention<br>Hors Nomenclature</a>
-            </li>
-        </ul>
+            <button type="submit" class="custom-button" id="generate-email" disabled>Générer le mail</button>
+            <a type="submit" class="custom-button" id="send-email">Envoyer l'email</a>
+        </form>
     </main>
 
     <div id="modal">
@@ -69,6 +63,7 @@
     </div>
     <script src="./js/header-date.js"></script>
     <script src="./js/modal-date.js"></script>
+    <script src="./js/devis-nas.js"></script>
 </body>
 
 </html>

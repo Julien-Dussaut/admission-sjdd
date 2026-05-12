@@ -85,12 +85,14 @@ formulaire.addEventListener('submit', function (e) {
     sendEmail.style.display = "block";
 })
 
+const generateEmail = document.querySelector('#generate-email');
 const sendEmail = document.querySelector('#send-email');
 
 sendEmail.addEventListener('click', () => {
     setTimeout(() => {
         formulaire.reset();
         sendEmail.style.display = "none";
+        generateEmail.disabled = true;
     }, 5000)
 
 })

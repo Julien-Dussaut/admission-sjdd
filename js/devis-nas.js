@@ -34,12 +34,14 @@ patientNameField.addEventListener('input', validerFormulaire);
 patientDobField.addEventListener('input', validerFormulaire);
 interventionField.addEventListener('input', validerFormulaire);
 
+const generateEmail = document.querySelector('#generate-email');
 const sendEmail = document.querySelector('#send-email');
 
 sendEmail.addEventListener('click', () => {
     setTimeout(() => {
         formulaire.reset();
         sendEmail.style.display = "none";
+        generateEmail.disabled = true;
     }, 5000)
 
 })

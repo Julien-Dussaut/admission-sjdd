@@ -9,6 +9,14 @@ function validerFormulaire() {
     }
 }
 
+// const preparationDate = localStorage.getItem('datePreparation');
+const datePrepaFr = new Date(localStorage.getItem('datePreparation')).toLocaleDateString('fr-FR', {
+    weekday: 'long',
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+});
+
 const formulaire = document.querySelector('#mineur-form');
 
 const emailField = document.querySelector("#mail");
@@ -17,8 +25,10 @@ emailField.addEventListener('input', validerFormulaire);
 formulaire.addEventListener('change', validerFormulaire);
 
 
-const subject = encodeURIComponent("Pièces manquantes pour admission - Clinique Saint-Jean de Dieu");
-let body = encodeURIComponent("Madame, Monsieur,\n\nVotre enfant va être opéré dans notre établissement et des documents nous font défaut.\nNous vous invitons à compléter la préadmission en ligne dans les plus brefs délais, afin de préparer au mieux la prise en charge de votre enfant.\n")
+const subject = encodeURIComponent("Urgent – Poursuite de votre préadmission en ligne avant votre intervention");
+let body = encodeURIComponent("Madame, Monsieur,\n\nL'intervention de votre enfant est programmée pour le " + datePrepaFr + " et, à ce jour, des documents nous font défaut.\nNous vous invitons à compléter la préadmission en ligne de votre enfant dans les plus brefs délais, afin de préparer au mieux la prise en charge de votre enfant.\n")
+
+body += encodeURIComponent("Si vous rencontrez des difficultés pour remplir votre dossier en ligne, vous pouvez vous rendre directement à l’accueil de la clinique, où nos équipes pourront vous accompagner dans cette démarche.\n");
 
 formulaire.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -65,10 +75,10 @@ formulaire.addEventListener('submit', function (e) {
         }
     })
 
-    body += encodeURIComponent("\n\n\nConformément à nos procédures, tout dossier de préadmission non complété à J-2 entraînera le report de l'intervention.");
-    body += encodeURIComponent("\nNous vous remercions pour votre réactivité et restons à votre disposition pour toute question.");
-    body += encodeURIComponent("\nCordialement,");
-    body += encodeURIComponent("\n\nClinique Saint Jean de Dieu,");
+    body += encodeURIComponent("\n ⚠️ Important : Conformément à nos procédures, tout dossier de préadmission non complété à J 2 entraînera le report de l’intervention.\n");
+    body += encodeURIComponent("Nous vous remercions pour votre réactivité et restons à votre disposition pour toute question.\n");
+    body += encodeURIComponent("Cordialement,\n\n");
+    
 
     let sendEmail = document.querySelector('#send-email');
     sendEmail.href = `mailto:${emailField.value.trim()}?subject=${subject}&body=${body}`;

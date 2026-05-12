@@ -8,6 +8,7 @@
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/header.css" rel="stylesheet" />
     <link href="./css/mineur-main.css" rel="stylesheet" />
+    <link href="./css/modal.css" rel="stylesheet" />
     <title>Admissions - SJDD</title>
 </head>
 
@@ -84,6 +85,20 @@
                 <a href=""></a>
         </form>
     </main>
+    <div id="modal">
+        <div id="modal-content">
+            <h2>Date de la journée en cours de préparation</h2>
+            <form>
+                <label for="date-prepa">Sélectionner la date de la journée en cours de préparation</label>
+                <input type="date" name="date-prepa" id="date-prepa">
+                <div>
+                    <button type="submit" class="custom-button">Valider</button>
+                    <button type="button" id="close-modal" class="custom-button">Fermer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="./js/header-date.js"></script>
     <script src="./js/modal-date.js"></script>
     <script src="./js/mineurs.js"></script>

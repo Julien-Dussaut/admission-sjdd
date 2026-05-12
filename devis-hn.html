@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/reset.css" rel="stylesheet" />
     <link href="./css/header.css" rel="stylesheet" />
-    <link href="./css/mineur-main.css" rel="stylesheet" />
+    <link href="./css/hn-main.css" rel="stylesheet" />
     <title>Admissions - SJDD</title>
 </head>
 
@@ -14,24 +14,24 @@
     <header>
         <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
         <nav>
-            <a href="mineurs.html" class="active">Relance mineurs</a>
-            <a href="devis-hn.html">Devis HN</a>
+            <a href="mineurs.html">Relance mineurs</a>
+            <a href="devis-hn.html" class="active">Devis HN</a>
             <a href="#">Devis NAS</a>
         </nav>
     </header>
     <main>
-        <h1>Relance patient mineur pour dossier incomplet</h1>
+        <h1>Demande de devis pour une intervention Hors Nomenclature</h1>
 
-        <form id="mineur-form">
+        <form id="devis-hn-form">
             <h2>Cocher les documents manquants au dossier</h2>
 
             <div id="form-field" id="form-field">
-                <input type="checkbox" name="cni-patient" id="cni-patient">
-                <label for="cni-patient">Identité patient</label>
+                <label for="ddn">Date de naissance patient : </label>
+                <input type="date" name="ddn" id="ddn">
             </div>
             <div id="form-field">
-                <input type="checkbox" name="cni-pere" id="cni-pere">
-                <label for="cni-pere">Identité père</label>
+                <input type="date" name="date-chir" id="date-chir">
+                <label for="date-chir">Date de l'intervention</label>
             </div>
             <div id="form-field">
                 <input type="checkbox" name="cni-mere" id="cni-mere">
@@ -73,8 +73,6 @@
 
             <button type="submit" class="custom-button" id="generate-email" disabled>Générer l'email</button>
             <a type="submit" class="custom-button" id="send-email">Envoyer l'email</button>
-
-            <a href=""></a>
         </form>
     </main>
     <script src="./js/mineurs.js"></script>

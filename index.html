@@ -5,33 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/reset.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/header.css" rel="stylesheet" />
     <link href="./css/home-main.css" rel="stylesheet" />
+    <link href="./css/modal.css" rel="stylesheet" />
+
     <title>Admissions - SJDD</title>
 </head>
 
 <body>
     <header>
-        <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
-        <nav>
-            <a href="mineurs.html">Relance mineurs</a>
-            <a href="#">Devis HN</a>
-            <a href="#">Devis NAS</a>
-        </nav>
+        <div>
+            <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
+            <nav>
+                <a href="mineurs.html">Relance mineurs</a>
+                <a href="#">Devis HN</a>
+                <a href="#">Devis NAS</a>
+            </nav>
+        </div>
+        <div id="date-prepa">
+            <p>Journée en cours de préparation : <span id="date-prepa-value"></span></p>
+            <button id="open-modal" class="custom-button">Modifier</button>
+        </div>
     </header>
     <main>
         <h1>Boite à outils admission Saint-Jean de Dieu</h1>
         <p>Bienvenue sur la boite à outils du service admission de la clinique Saint-Jean de Dieu</p>
 
-        <p>Vous trouverez sur ces pages différents outils vous permettant de travailler plus rapidement et plus efficatement</p>
+        <p>Vous trouverez sur ces pages différents outils vous permettant de travailler plus rapidement et plus
+            efficatement</p>
 
         <p>Les outils disponibles pour l'instant sont les suivants : </p>
         <ul>
             <li><a href="#">Mail de relance pour les patients mineurs</a></li>
             <li><a href="#">Mail type pour demander un devis au service facturation<br>Non Assuré Social</a></li>
-            <li><a href="#">Mail type pour demander le devis à un médecin pour une intervention<br>Hors Nomenclature</a></li>
+            <li><a href="#">Mail type pour demander le devis à un médecin pour une intervention<br>Hors Nomenclature</a>
+            </li>
         </ul>
     </main>
+
+    <div id="modal">
+        <div id="modal-content">
+            <h2>Date de la journée en cours de préparation</h2>
+            <form>
+                <label for="date-prepa">Sélectionner la date de la journée en cours de préparation</label>
+                <input type="date" name="date-prepa" id="date-prepa">
+                <div>
+                    <button type="submit" class="custom-button">Valider</button>
+                    <button type="button" id="close-modal" class="custom-button">Fermer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./js/header-date.js"></script>
+    <script src="./js/modal-date.js"></script>
 </body>
 
 </html>

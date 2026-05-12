@@ -19,7 +19,7 @@ formulaire.addEventListener('submit', function (e) {
     const intervention = document.querySelector("#intervention-description").value.trim();
 
     const subject = encodeURIComponent("Demande de devis pour un patient non assuré social");
-    let body = encodeURIComponent("Bonjour,\n\nPourriez-vous, s'il vous plaît, me fournir un devis pour le patient suivant :\n " + patientName + ", né(e) le " + patientDob + ".\n\nPour cette intervention :\n" + intervention + "\n\nMerci d'avance pour votre retour.\n\nCordialement.\n\n");
+    let body = encodeURIComponent("Bonjour,\n\nPourriez-vous, s'il vous plaît, me fournir un devis pour le patient suivant :\n " + patientName + ", né(e) le " + new Date(patientDob).toLocaleDateString() + ".\n\nPour cette intervention :\n" + intervention + "\n\nMerci d'avance pour votre retour.\n\nCordialement.\n\n");
 
     let sendEmail = document.querySelector('#send-email');
     sendEmail.href = `mailto:pmsifactu@clinique-stjeandedieu.com?cc=s.azzabi@clinique-stjeandedieu.com&subject=${subject}&body=${body}`;

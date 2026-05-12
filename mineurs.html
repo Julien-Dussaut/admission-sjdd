@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/reset.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/header.css" rel="stylesheet" />
     <link href="./css/mineur-main.css" rel="stylesheet" />
     <title>Admissions - SJDD</title>
@@ -12,12 +13,18 @@
 
 <body>
     <header>
-        <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
-        <nav>
-            <a href="mineurs.html" class="active">Relance mineurs</a>
-            <a href="devis-hn.html">Devis HN</a>
-            <a href="#">Devis NAS</a>
-        </nav>
+        <div>
+            <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
+            <nav>
+                <a href="mineurs.html">Relance mineurs</a>
+                <a href="devis-hn.html">Devis HN</a>
+                <a href="#">Devis NAS</a>
+            </nav>
+        </div>
+        <div id="date-prepa">
+            <p>Journée en cours de préparation : <span id="date-prepa-value"></span></p>
+            <button id="open-modal" class="custom-button">Modifier</button>
+        </div>
     </header>
     <main>
         <h1>Relance patient mineur pour dossier incomplet</h1>
@@ -74,9 +81,11 @@
             <button type="submit" class="custom-button" id="generate-email" disabled>Générer l'email</button>
             <a type="submit" class="custom-button" id="send-email">Envoyer l'email</button>
 
-            <a href=""></a>
+                <a href=""></a>
         </form>
     </main>
+    <script src="./js/header-date.js"></script>
+    <script src="./js/modal-date.js"></script>
     <script src="./js/mineurs.js"></script>
 </body>
 

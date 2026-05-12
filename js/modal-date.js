@@ -21,6 +21,7 @@ form.addEventListener('submit', (event) => {
         localStorage.setItem('datePreparation', selectedDate);
         localStorage.setItem('dateSettedAt', new Date());
         modal.style.visibility = 'hidden';
+        location.reload();
     }
 });
 

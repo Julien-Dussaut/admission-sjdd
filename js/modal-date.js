@@ -1,5 +1,3 @@
-// localStorage.setItem('dateSettedAt', new Date());
-
 const datePreparation = localStorage.getItem('datePreparation');
 const dateSettedAt = localStorage.getItem('dateSettedAt');
 const dateNeededToSet = !dateSettedAt || new Date(dateSettedAt).toLocaleDateString() !== new Date().toLocaleDateString();
@@ -12,6 +10,13 @@ closeModalButton.addEventListener('click', () => {
     modal.style.visibility = 'hidden';
 });
 
+const openModalButton = document.getElementById('open-modal');
+
+openModalButton.addEventListener('click', () => {
+    console.log(new Date(datePreparation).toLocaleDateString());
+    document.getElementById('date-prepa').valueAsDate = datePreparation ? new Date(datePreparation) : '';
+    modal.style.visibility = 'visible';
+});
 const form = document.querySelector('#modal-content form');
 
 form.addEventListener('submit', (event) => {
@@ -30,4 +35,5 @@ if (dateNeededToSet) {
     predefinedDate.setDate(predefinedDate.getDate() + 3);
     document.getElementById('date-prepa').value = predefinedDate.toISOString().split('T')[0];
     modal.style.visibility = 'visible';
-} 
+}
+

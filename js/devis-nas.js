@@ -34,20 +34,12 @@ patientNameField.addEventListener('input', validerFormulaire);
 patientDobField.addEventListener('input', validerFormulaire);
 interventionField.addEventListener('input', validerFormulaire);
 
-<<<<<<< HEAD
-=======
-const generateEmail = document.querySelector('#generate-email');
->>>>>>> feature/devis-hn
 const sendEmail = document.querySelector('#send-email');
 
 sendEmail.addEventListener('click', () => {
     setTimeout(() => {
         formulaire.reset();
         sendEmail.style.display = "none";
-<<<<<<< HEAD
-=======
-        generateEmail.disabled = true;
->>>>>>> feature/devis-hn
     }, 5000)
 
 })

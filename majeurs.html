@@ -7,7 +7,7 @@
     <link href="./css/reset.css" rel="stylesheet" />
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/header.css" rel="stylesheet" />
-    <link href="./css/mineur-main.css" rel="stylesheet" />
+    <link href="./css/majeur-main.css" rel="stylesheet" />
     <link href="./css/modal.css" rel="stylesheet" />
     <title>Admissions - SJDD</title>
 </head>
@@ -18,8 +18,8 @@
             <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
             <nav>
                 <a href="index.html">Accueil</a>
-                <a href="mineurs.html" class="active">Relance mineurs</a>
-                <a href="majeurs.html">Relance majeurs</a>
+                <a href="mineurs.html">Relance mineurs</a>
+                <a href="majeurs.html" class="active">Relance majeurs</a>
                 <a href="devis-nas.html">Devis NAS</a>
                 <a href="devis-hn.html">Devis HN</a>
             </nav>
@@ -30,30 +30,19 @@
         </div>
     </header>
     <main>
-        <h1>Relance patient mineur pour dossier incomplet</h1>
+        <h1>Relance patient majeur pour dossier incomplet</h1>
 
-        <form id="mineur-form">
+        <form id="majeur-form">
+
             <h2>Cocher les documents manquants au dossier</h2>
 
             <div id="form-field" id="form-field">
+                <input type="checkbox" name="checkAll" id="checkAll">
+                <label for="checkAll">Tous cocher</label>
+            </div>
+            <div id="form-field" id="form-field">
                 <input type="checkbox" name="cni-patient" id="cni-patient">
                 <label for="cni-patient">Identité patient</label>
-            </div>
-            <div id="form-field">
-                <input type="checkbox" name="cni-pere" id="cni-pere">
-                <label for="cni-pere">Identité père</label>
-            </div>
-            <div id="form-field">
-                <input type="checkbox" name="cni-mere" id="cni-mere">
-                <label for="cni-mere">Identité mère</label>
-            </div>
-            <div id="form-field">
-                <input type="checkbox" name="lf-naissance" id="lf-naissance">
-                <label for="lf-naissance">Livret de famille / Acte de naissance</label>
-            </div>
-            <div id="form-field">
-                <input type="checkbox" name="adm-mineur" id="adm-mineur">
-                <label for="adm-mineur">Fiche admission patient mineur</label>
             </div>
             <div id="form-field">
                 <input type="checkbox" name="ca" id="ca">
@@ -101,7 +90,7 @@
 
     <script src="./js/header-date.js"></script>
     <script src="./js/modal-date.js"></script>
-    <script src="./js/mineurs.js"></script>
+    <script src="./js/majeurs.js"></script>
 </body>
 
 </html>

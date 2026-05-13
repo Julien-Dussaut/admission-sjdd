@@ -32,3 +32,7 @@ h1 {
     font-weight: bold;
     padding-top: 2rem;
 }
+
+#majeurs, #devis-nas, #devis-hn {
+    display: none;
+}

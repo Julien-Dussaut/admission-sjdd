@@ -1,45 +1,45 @@
 function validerFormulaire() {
-    const patientName = document.querySelector("#patient-name").value.trim();
-    const patientDob = document.querySelector("#patient-dob").value.trim();
-    const intervention = document.querySelector("#intervention-description").value.trim();
+    const patientNameNas = document.querySelector("#patient-name-nas").value.trim();
+    const patientDobNas = document.querySelector("#patient-dob-nas").value.trim();
+    const interventionNas = document.querySelector("#intervention-description-nas").value.trim();
 
-    if (!patientName || !patientDob || !intervention) {
-        document.querySelector("#generate-email").disabled = true;
+    if (!patientNameNas || !patientDobNas || !interventionNas) {
+        document.querySelector("#generate-email-nas").disabled = true;
     } else {
-        document.querySelector("#generate-email").disabled = false;
+        document.querySelector("#generate-email-nas").disabled = false;
     }
 }
 
-const formulaire = document.querySelector('#devis-nas');
+const formulaireNas = document.querySelector('#devis-nas-form');
 
-formulaire.addEventListener('submit', function (e) {
+formulaireNas.addEventListener('submit', function (e) {
     e.preventDefault();
-    const patientName = document.querySelector("#patient-name").value.trim();
-    const patientDob = document.querySelector("#patient-dob").value.trim();
-    const intervention = document.querySelector("#intervention-description").value.trim();
+    const patientNameNas = document.querySelector("#patient-name-nas").value.trim();
+    const patientDobNas = document.querySelector("#patient-dob-nas").value.trim();
+    const interventionNas = document.querySelector("#intervention-description-nas").value.trim();
 
-    const subject = encodeURIComponent("Demande de devis pour un patient non assuré social");
-    let body = encodeURIComponent("Bonjour,\n\nPourriez-vous, s'il vous plaît, me fournir un devis pour le patient suivant :\n " + patientName + ", né(e) le " + new Date(patientDob).toLocaleDateString() + ".\n\nPour cette intervention :\n" + intervention + "\n\nMerci d'avance pour votre retour.\n\nCordialement.\n\n");
+    const subjectNas = encodeURIComponent("Demande de devis pour un patient non assuré social");
+    let bodyNas = encodeURIComponent("Bonjour,\n\nPourriez-vous, s'il vous plaît, me fournir un devis pour le patient suivant :\n " + patientNameNas + ", né(e) le " + new Date(patientDobNas).toLocaleDateString() + ".\n\nPour cette intervention :\n" + interventionNas + "\n\nMerci d'avance pour votre retour.\n\nCordialement.\n\n");
 
-    let sendEmail = document.querySelector('#send-email');
-    sendEmail.href = `mailto:pmsifactu@clinique-stjeandedieu.com?cc=s.azzabi@clinique-stjeandedieu.com&subject=${subject}&body=${body}`;
-    sendEmail.style.display = "block";
+    let sendEmailNas = document.querySelector('#send-email-nas');
+    sendEmailNas.href = `mailto:pmsifactu@clinique-stjeandedieu.com?cc=s.azzabi@clinique-stjeandedieu.com&subject=${subjectNas}&body=${bodyNas}`;
+    sendEmailNas.style.display = "block";
 });
 
-const patientNameField = document.querySelector("#patient-name");
-const patientDobField = document.querySelector("#patient-dob");
-const interventionField = document.querySelector("#intervention-description");
+const patientNameFieldNas = document.querySelector("#patient-name-nas");
+const patientDobFieldNas = document.querySelector("#patient-dob-nas");
+const interventionFieldNas = document.querySelector("#intervention-description-nas");
 
-patientNameField.addEventListener('input', validerFormulaire);
-patientDobField.addEventListener('input', validerFormulaire);
-interventionField.addEventListener('input', validerFormulaire);
+patientNameFieldNas.addEventListener('input', validerFormulaire);
+patientDobFieldNas.addEventListener('input', validerFormulaire);
+interventionFieldNas.addEventListener('input', validerFormulaire);
 
-const sendEmail = document.querySelector('#send-email');
+const sendEmailNas = document.querySelector('#send-email-nas');
 
-sendEmail.addEventListener('click', () => {
+sendEmailNas.addEventListener('click', () => {
     setTimeout(() => {
         formulaire.reset();
-        sendEmail.style.display = "none";
+        sendEmailNas.style.display = "none";
     }, 5000)
 
 })

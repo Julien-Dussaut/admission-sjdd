@@ -51,21 +51,22 @@ input[type="checkbox"] {
     accent-color: #f0801c;
 }
 
-#generate-email:disabled {
+#generate-email-mineurs:disabled {
     border: 2px solid silver;
     color: silver;
 }
 
-#generate-email:disabled:hover {
+#generate-email-mineurs:disabled:hover {
     border: 2px solid silver;
     color: silver;
     cursor: not-allowed;
     background-color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
-#send-email {
+#send-email-mineurs {
     text-align: center;
     display: none;
+    text-decoration: none;
 }
 
 

@@ -8,6 +8,10 @@
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/header.css" rel="stylesheet" />
     <link href="./css/home-main.css" rel="stylesheet" />
+    <link href="./css/mineur-main.css" rel="stylesheet" />
+    <link href="./css/majeur-main.css" rel="stylesheet" />
+    <link href="./css/nas-main.css" rel="stylesheet" />
+    <link href="./css/hn-main.css" rel="stylesheet" />
     <link href="./css/modal.css" rel="stylesheet" />
 
     <title>Admissions - SJDD</title>
@@ -15,35 +19,178 @@
 
 <body>
     <header>
-        <div>
+        <div id="title">
             <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
-            <nav>
-                <a href="index.html" class="active">Accueil</a>
-                <a href="mineurs.html">Relance mineurs</a>
-                <a href="majeurs.html">Relance majeurs</a>
-                <a href="devis-nas.html">Devis NAS</a>
-                <a href="devis-hn.html">Devis HN</a>
-            </nav>
+            <h1>Admissions Saint-Jean de Dieu</h1>
+            <div id="date-prepa">
+                <p>Journée en cours de préparation : <span id="date-prepa-value"></span></p>
+                <button id="open-modal" class="custom-button">Modifier</button>
+            </div>
         </div>
-        <div id="date-prepa">
-            <p>Journée en cours de préparation : <span id="date-prepa-value"></span></p>
-            <button id="open-modal" class="custom-button">Modifier</button>
-        </div>
+        <nav>
+            <a href="#mineurs" class="active">Relance mineurs</a>
+            <a href="#majeurs">Relance majeurs</a>
+            <a href="#devis-nas">Devis NAS</a>
+            <a href="#devis-hn">Devis HN</a>
+        </nav>
+
     </header>
     <main>
-        <h1>Boite à outils admission Saint-Jean de Dieu</h1>
-        <p>Bienvenue sur la boite à outils du service admission de la clinique Saint-Jean de Dieu</p>
+        <section id="mineurs">
+            <h1>Relance patient mineur pour dossier incomplet</h1>
 
-        <p>Vous trouverez sur ces pages différents outils vous permettant de travailler plus rapidement et plus
-            efficatement</p>
+            <form id="mineur-form">
+                <h2>Cocher les documents manquants au dossier</h2>
 
-        <p>Les outils disponibles pour l'instant sont les suivants : </p>
-        <ul>
-            <li><a class="custom-button" href="mineurs.html">Mail de relance pour les patients mineurs</a></li>
-            <li><a class="custom-button" href="devis-nas.html">Demande de devis pour un patient Non Assuré Social</a></li>
-            <li><a class="custom-button" href="devis-hn.html">Demande de devis pour une intervention Hors Nomenclature</a></li>
-            </li>
-        </ul>
+                <div class="form-field">
+                    <input type="checkbox" name="checkAll" id="checkAll">
+                    <label for="checkAll" id="labelCheckAll">Tout cocher</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="cni-patient" id="cni-patient">
+                    <label for="cni-patient">Identité patient</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="cni-pere" id="cni-pere">
+                    <label for="cni-pere">Identité père</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="cni-mere" id="cni-mere">
+                    <label for="cni-mere">Identité mère</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="lf-naissance" id="lf-naissance">
+                    <label for="lf-naissance">Livret de famille / Acte de naissance</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="adm-mineur" id="adm-mineur">
+                    <label for="adm-mineur">Fiche admission patient mineur</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="ca" id="ca">
+                    <label for="ca">Consentement anesthésie</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="cc" id="cc">
+                    <label for="cc">Consentement chirurgie</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="da" id="da">
+                    <label for="da">Directives anticipées</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="pap" id="pap">
+                    <label for="pap">Personne à prévenir - de confiance</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="tt-donnees" id="tt-donnees">
+                    <label for="tt-donnees">E-SATIS</label>
+                </div>
+
+                <div class="form-field">
+                    <label for="mail">Email parent : </label>
+                    <input type="email" name="mail" id="mail" required>
+                </div>
+
+                <button type="submit" class="custom-button" id="generate-email-mineurs" disabled>Générer
+                    l'email</button>
+                <a type="submit" class="custom-button" id="send-email-mineurs">Envoyer l'email</a>
+            </form>
+        </section>
+        <section id="majeurs">
+            <h1>Relance patient majeur pour dossier incomplet</h1>
+
+            <form id="majeur-form">
+
+                <h2>Cocher les documents manquants au dossier</h2>
+
+                <div class="form-field">
+                    <input type="checkbox" name="checkAllMajeurs" id="checkAllMajeurs">
+                    <label for="checkAllMajeurs" id="labelCheckAllMajeurs">Tous cocher</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="cni-patient-majeur" id="cni-patient-majeur">
+                    <label for="cni-patient-majeur">Identité patient</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="ca-majeur" id="ca-majeur">
+                    <label for="ca-majeur">Consentement anesthésie</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="cc-majeur" id="cc-majeur">
+                    <label for="cc-majeur">Consentement chirurgie</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="da-majeur" id="da-majeur">
+                    <label for="da-majeur">Directives anticipées</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="pap-majeur" id="pap-majeur">
+                    <label for="pap-majeur">Personne à prévenir - de confiance</label>
+                </div>
+                <div class="form-field">
+                    <input type="checkbox" name="tt-donnees-majeur" id="tt-donnees-majeur">
+                    <label for="tt-donnees-majeur">E-SATIS</label>
+                </div>
+
+                <div class="form-field">
+                    <label for="mailMajeurs">Email parent : </label>
+                    <input type="email" name="mailMajeurs" id="mailMajeurs" required>
+                </div>
+
+                <button type="submit" class="custom-button" id="generate-email-majeurs" disabled>Générer
+                    l'email</button>
+                <a type="submit" class="custom-button" id="send-email-majeurs">Envoyer l'email</a>
+            </form>
+        </section>
+        <section id="devis-nas">
+            <h1>Demande de devis pour patient Non Assuré Social</h1>
+
+            <form id="devis-nas-form">
+                <h2>Informations sur le patient</h2>
+                <label for="patient-name-nas">Nom et prénom du patient :</label>
+                <input type="text" id="patient-name-nas" name="patient-name-nas" required>
+
+                <label for="patient-dob-nas">Date de naissance du patient :</label>
+                <input type="date" id="patient-dob-nas" name="patient-dob-nas" required>
+
+                <label for="intervention-description-nas">Description de l'intervention :</label>
+                <textarea id="intervention-description-nas" name="intervention-description-nas" rows="4"
+                    required></textarea>
+
+                <button type="submit" class="custom-button" id="generate-email-nas" disabled>Générer le mail</button>
+                <a type="submit" class="custom-button" id="send-email-nas">Envoyer l'email</a>
+            </form>
+        </section>
+        <section id="devis-hn">
+            <h1>Demande de devis pour patient Hors Nomenclature</h1>
+            <form id="devis-hn-form">
+                <h2>Informations sur le patient</h2>
+                <label for="patient-name-hn">Nom et prénom du patient :</label>
+                <input type="text" id="patient-name-hn" name="patient-name-hn" required>
+
+                <label for="patient-dob-hn">Date de naissance du patient :</label>
+                <input type="date" id="patient-dob-hn" name="patient-dob-hn" required>
+
+                <label for="surgeon-hn">Nom du chirurgien :</label>
+                <select name="surgeon-hn" id="surgeon-hn" required>
+                    <option value="">Sélectionner un chirurgien</option>
+                    <option value="racy">Dr. Racy</option>
+                    <option value="davido">Dr. Davido</option>
+                    <option value="de-verbizier">Dr. De Verbizier</option>
+                    <option value="boutin">Dr. Boutin</option>
+                    <option value="samama">Dr. Samama</option>
+                    <option value="fitoussi">Dr. Fitoussi</option>
+                    <option value="barry-de-longchamps">Dr. Barry de Longchamps</option>
+                    <option value="lemazurier">Dr. Lemazurier</option>
+                    <option value="guilhard">Dr. Guilhard</option>
+                    <option value="sarfati">Dr. Sarfati</option>
+                </select>
+
+                <button type="submit" class="custom-button" id="generate-email-hn" disabled>Générer le mail</button>
+                <a type="submit" class="custom-button" id="send-email-hn">Envoyer l'email</a>
+            </form>
+        </section>
     </main>
     <div id="modal">
         <div id="modal-content">
@@ -60,6 +207,12 @@
     </div>
     <script src="./js/header-date.js"></script>
     <script src="./js/modal-date.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/mineurs.js"></script>
+    <script src="./js/majeurs.js"></script>
+    <script src="./js/devis-nas.js"></script>
+    <script src="./js/devis-hn.js"></script>
+
 </body>
 
 </html>

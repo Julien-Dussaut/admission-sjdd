@@ -32,13 +32,13 @@
     </header>
     <main>
         <h1>Demande de devis pour patient Hors Nomenclature</h1>
-        <form id="devis-hn">
+        <form id="devis-hn-form">
             <h2>Informations sur le patient</h2>
-            <label for="patient-name">Nom et prénom du patient :</label>
-            <input type="text" id="patient-name" name="patient-name" required>
+            <label for="patient-name-hn">Nom et prénom du patient :</label>
+            <input type="text" id="patient-name-hn" name="patient-name-hn" required>
 
-            <label for="patient-dob">Date de naissance du patient :</label>
-            <input type="date" id="patient-dob" name="patient-dob" required>
+            <label for="patient-dob-hn">Date de naissance du patient :</label>
+            <input type="date" id="patient-dob-hn" name="patient-dob-hn" required>
 
             <label for="surgeon">Nom du chirurgien :</label>
             <select name="surgeon" id="surgeon" required>
@@ -55,8 +55,8 @@
                 <option value="sarfati">Dr. Sarfati</option>
             </select>
 
-            <button type="submit" class="custom-button" id="generate-email" disabled>Générer le mail</button>
-            <a type="submit" class="custom-button" id="send-email">Envoyer l'email</a>
+            <button type="submit" class="custom-button" id="generate-email-hn" disabled>Générer le mail</button>
+            <a type="submit" class="custom-button" id="send-email-hn">Envoyer l'email</a>
         </form>
     </main>
 

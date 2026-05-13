@@ -7,7 +7,7 @@
     <link href="./css/reset.css" rel="stylesheet" />
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/header.css" rel="stylesheet" />
-    <link href="./css/nas-main.css" rel="stylesheet" />
+    <link href="./css/hn-main.css" rel="stylesheet" />
     <link href="./css/modal.css" rel="stylesheet" />
 
     <title>Admissions - SJDD</title>
@@ -20,12 +20,8 @@
             <nav>
                 <a href="index.html">Accueil</a>
                 <a href="mineurs.html">Relance mineurs</a>
-                <a href="devis-nas.html" class="active">Devis NAS</a>
-<<<<<<< HEAD
-                <a href="#">Devis HN</a>
-=======
-                <a href="devis-hn.html">Devis HN</a>
->>>>>>> feature/devis-hn
+                <a href="devis-nas.html">Devis NAS</a>
+                <a href="devis-hn.html" class="active">Devis HN</a>
             </nav>
         </div>
         <div id="date-prepa">
@@ -34,18 +30,29 @@
         </div>
     </header>
     <main>
-        <h1>Demande de devis pour patient Non Assuré Social</h1>
-
-        <form id="devis-nas">
+        <h1>Demande de devis pour patient Hors Nomenclature</h1>
+        <form id="devis-hn">
             <h2>Informations sur le patient</h2>
-                <label for="patient-name">Nom et prénom du patient :</label>
-                <input type="text" id="patient-name" name="patient-name" required>
-            
-                <label for="patient-dob">Date de naissance du patient :</label>
-                <input type="date" id="patient-dob" name="patient-dob" required>
-            
-                <label for="intervention-description">Description de l'intervention :</label>
-                <textarea id="intervention-description" name="intervention-description" rows="4" required></textarea>
+            <label for="patient-name">Nom et prénom du patient :</label>
+            <input type="text" id="patient-name" name="patient-name" required>
+
+            <label for="patient-dob">Date de naissance du patient :</label>
+            <input type="date" id="patient-dob" name="patient-dob" required>
+
+            <label for="surgeon">Nom du chirurgien :</label>
+            <select name="surgeon" id="surgeon" required>
+                <option value="">Sélectionner un chirurgien</option>
+                <option value="racy">Dr. Racy</option>
+                <option value="davido">Dr. Davido</option>
+                <option value="de-verbizier">Dr. De Verbizier</option>
+                <option value="boutin">Dr. Boutin</option>
+                <option value="samama">Dr. Samama</option>
+                <option value="fitoussi">Dr. Fitoussi</option>
+                <option value="barry-de-longchamps">Dr. Barry de Longchamps</option>
+                <option value="lemazurier">Dr. Lemazurier</option>
+                <option value="guilhard">Dr. Guilhard</option>
+                <option value="sarfati">Dr. Sarfati</option>
+            </select>
 
             <button type="submit" class="custom-button" id="generate-email" disabled>Générer le mail</button>
             <a type="submit" class="custom-button" id="send-email">Envoyer l'email</a>
@@ -67,7 +74,7 @@
     </div>
     <script src="./js/header-date.js"></script>
     <script src="./js/modal-date.js"></script>
-    <script src="./js/devis-nas.js"></script>
+    <script src="./js/devis-hn.js"></script>
 </body>
 
 </html>

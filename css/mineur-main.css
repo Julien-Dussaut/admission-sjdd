@@ -1,24 +1,12 @@
-main {
-    width: 50dvw;
-    margin: 1rem auto;
-}
-
-h1 {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
 #mineur-form {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
     width: 50%;
     margin: 2rem auto;
     border: 2px solid #f0801c;
     border-radius: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 #mineur-form h2 {
@@ -32,15 +20,35 @@ h1 {
     font-size: 1.2rem;
     font-weight: bold;
 }
-#form-field {
-    padding: 1rem;
+
+#checkAll {
+    margin-bottom: 1rem;
 }
-#form-field label {
+#labelCheckAll {
+    font-weight: bold;
+}
+.form-field {
+    padding: 0 2rem;
+}
+.form-field label {
     color: black;
     transition: all 0.5s;
 }
-#form-field label:hover {
+.form-field label:hover {
     color: #f0801c;
+}
+
+.form-field input[type="email"] {
+    margin: 1rem 0;
+    width: 60%;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+    outline: 1px solid #f0801c;
+    border: none;
+}
+
+input[type="checkbox"] {
+    accent-color: #f0801c;
 }
 
 #generate-email:disabled {
@@ -53,7 +61,7 @@ h1 {
     color: silver;
     cursor: not-allowed;
     background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 #send-email {
     text-align: center;

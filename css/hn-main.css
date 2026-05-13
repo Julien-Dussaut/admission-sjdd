@@ -1,24 +1,12 @@
-main {
-    margin: 1rem 0;
-}
-
-h1 {
-    width: 50dvw;
-    text-align: center;
-    margin: 0 auto;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
 #devis-hn {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 35%;
+    width: 50%;
     margin: 2rem auto;
     border: 2px solid #f0801c;
     border-radius: 1rem;
     gap: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 #devis-hn h2 {
@@ -35,13 +23,15 @@ h1 {
 }
 
 #devis-hn label {
-    margin-left: 0.5rem;;
+    margin-left: 0.5rem;
     
 }
 #devis-hn input, #devis-hn select {
     margin-right: 0.5rem;
     border-radius: 1rem;
     padding: 0.5rem;
+    border: none;
+    outline: 1px solid #f0801c;
 }
 #devis-hn label:hover {
     color: #f0801c;

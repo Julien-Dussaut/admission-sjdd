@@ -1,24 +1,12 @@
-main {
-    margin: 1rem 0;
-}
-
-h1 {
-    width: 50dvw;
-    text-align: center;
-    margin: 0 auto;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
 #devis-nas {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 35%;
+    width: 50%;
     margin: 2rem auto;
     border: 2px solid #f0801c;
     border-radius: 1rem;
     gap: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 #devis-nas h2 {
@@ -35,13 +23,15 @@ h1 {
 }
 
 #devis-nas label {
-    margin-left: 0.5rem;;
+    margin-left: 0.5rem;
     
 }
 #devis-nas input, #devis-nas textarea {
     margin-right: 0.5rem;
     border-radius: 1rem;
     padding: 0.5rem;
+    border: none;
+    outline: 1px solid #f0801c;
 }
 #devis-nas label:hover {
     color: #f0801c;

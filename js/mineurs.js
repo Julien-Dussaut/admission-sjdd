@@ -82,6 +82,9 @@ formulaire.addEventListener('submit', function (e) {
                 case 'pap':
                     body += encodeURIComponent("• Personne à prévenir et de confiance\n");
                     break;
+                case 'vitale':
+                    bodyMajeurs += encodeURIComponent("• Carte vitale ou attestation de droit\n");
+                    break;
                 case 'tt-donnees':
                     body += encodeURIComponent("• Accord pour le traitement des données personnelles\n");
                     break;

@@ -40,15 +40,18 @@ formulaireMajeurs.addEventListener('change', validerFormulaire);
 
 
 const subjectMajeurs = encodeURIComponent("Urgent – Poursuite de votre préadmission en ligne avant votre intervention");
-let bodyMajeurs = encodeURIComponent("Madame, Monsieur,\n\nVotre intervention est programmée pour le " + datePrepaFrMajeurs + " et, à ce jour, votre espace patient n'a pas encore été renseigné.\nNous vous invitons à compléter la préadmission en ligne dans les plus brefs délais, afin de préparer au mieux la prise en charge le jour de votre venue.\n");
 
 formulaireMajeurs.addEventListener('submit', function (e) {
     e.preventDefault();
+
+    let bodyMajeurs = encodeURIComponent("Madame, Monsieur,\n\nVotre intervention est programmée le " + datePrepaFrMajeurs + " et nous sommes heureux de vous accueillir prochainement au sein de notre établissement.\n");
+    bodyMajeurs += encodeURIComponent("Afin de valider votre prise en charge, nous vous remercions de bien vouloir compléter dès que possible la préadmission en ligne ");
+
     const missingDocuments = formulaireMajeurs.querySelectorAll('input[type=checkbox]:checked');
     if (missingDocuments.length > 1) {
-        bodyMajeurs += encodeURIComponent("\nLes documents manquants sont les suivants : \n\n");
+        bodyMajeurs += encodeURIComponent("\n et d'y joindre les documents suivants : \n\n");
     } else if (missingDocuments == 1) {
-        bodyMajeurs += encodeURIComponent("\nLe document manquant est le suivant : \n\n");
+        bodyMajeurs += encodeURIComponent("\n et d'y joindre le document suivant : \n\n");
     }
     missingDocuments.forEach(element => {
         if (element.checked) {
@@ -75,16 +78,16 @@ formulaireMajeurs.addEventListener('submit', function (e) {
         }
     })
 
-    bodyMajeurs += encodeURIComponent("\nSi vous rencontrez des difficultés pour remplir votre dossier en ligne, vous pouvez vous rendre directement à l’accueil de la clinique, où nos équipes pourront vous accompagner dans cette démarche.\n");
-    bodyMajeurs += encodeURIComponent("\n ⚠️ Important : Conformément à nos procédures, tout dossier de préadmission non complété à J 2 entraînera le report de l’intervention.\n");
-    bodyMajeurs += encodeURIComponent("Nous vous remercions pour votre réactivité et restons à votre disposition pour toute question.\n");
+    bodyMajeurs += encodeURIComponent("\n ⚠️ À noter : Tout dossier incomplet à J 2 entraînera le report de l’intervention.\n");
+    bodyMajeurs += encodeURIComponent("\nSi vous rencontrez la moindre difficulté, notre équipe d'accueil reste disponible pour vous accompagner, directement à la clinique ou par mail à l'adresse : admissionsambu@clinique-stjeandedieu.com .\n");
+    bodyMajeurs += encodeURIComponent("Nous vous remercions de votre diligence et demeurons à votre disposition pour toute question.\n");
     bodyMajeurs += encodeURIComponent("Cordialement,\n\n");
 
 
     let sendEmailMajeurs = document.querySelector('#send-email-majeurs');
     sendEmailMajeurs.href = `mailto:${emailFieldMajeurs.value.trim()}?subject=${subjectMajeurs}&body=${bodyMajeurs}`;
     sendEmailMajeurs.style.display = "block";
-})
+});
 
 sendEmailMajeurs.addEventListener('click', () => {
     setTimeout(() => {
@@ -93,5 +96,4 @@ sendEmailMajeurs.addEventListener('click', () => {
         sendEmailMajeurs.setAttribute('href', '');
         generateEmailMajeurs.disabled = true;
     }, 5000)
-
-})
+});

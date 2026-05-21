@@ -40,10 +40,12 @@ formulaire.addEventListener('change', validerFormulaire);
 
 
 const subject = encodeURIComponent("Urgent – Poursuite de votre préadmission en ligne avant votre intervention");
-let body = encodeURIComponent("Madame, Monsieur,\n\nL'intervention de votre enfant est programmée pour le " + datePrepaFr + " et, à ce jour, des documents nous font défaut.\nNous vous invitons à compléter la préadmission en ligne de votre enfant dans les plus brefs délais, afin de préparer au mieux la prise en charge de votre enfant lors de sa venue.\n");
 
 formulaire.addEventListener('submit', function (e) {
     e.preventDefault();
+
+    let body = encodeURIComponent("Madame, Monsieur,\n\nL'intervention de votre enfant est programmée le " + datePrepaFr + " et nous sommes heureux de l'accueillir prochainement.\n\n Afin de valider sa prise en charge, nous vous remercions de bien vouloir compléter dès que possible la préadmission en ligne et d'y joindre les documents suivants, obligatoires avant toute intervention : \n");
+
     const missingDocuments = formulaire.querySelectorAll('input[type=checkbox]:checked');
     if (missingDocuments.length > 1) {
         body += encodeURIComponent("\nLes documents manquants sont les suivants : \n\n");
@@ -87,16 +89,16 @@ formulaire.addEventListener('submit', function (e) {
         }
     })
 
-    body += encodeURIComponent("\nSi vous rencontrez des difficultés pour remplir votre dossier en ligne, vous pouvez vous rendre directement à l’accueil de la clinique, où nos équipes pourront vous accompagner dans cette démarche.\n");
-    body += encodeURIComponent("\n ⚠️ Important : Conformément à nos procédures, tout dossier de préadmission non complété à J 2 entraînera le report de l’intervention.\n");
-    body += encodeURIComponent("Nous vous remercions pour votre réactivité et restons à votre disposition pour toute question.\n");
+    body += encodeURIComponent("\n ⚠️ À noter : Tout dossier incomplet à J 2 entraînera le report de l’intervention.\n");
+    body += encodeURIComponent("\nSi vous rencontrez la moindre difficulté, notre équipe d'accueil reste disponible pour vous accompagner, directement à la clinique ou par mail à l'adresse : admissionsambu@clinique-stjeandedieu.com .\n");
+    body += encodeURIComponent("Nous vous remercions de votre diligence et demeurons à votre disposition pour toute question.\n\n");
     body += encodeURIComponent("Cordialement,\n\n");
 
 
     let sendEmail = document.querySelector('#send-email-mineurs');
     sendEmail.href = `mailto:${emailField.value.trim()}?subject=${subject}&body=${body}`;
     sendEmail.style.display = "block";
-})
+});
 
 sendEmail.addEventListener('click', () => {
     setTimeout(() => {
@@ -105,4 +107,4 @@ sendEmail.addEventListener('click', () => {
         generateEmail.disabled = true;
     }, 5000)
 
-})
+});

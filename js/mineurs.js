@@ -71,10 +71,10 @@ formulaire.addEventListener('submit', function (e) {
                     body += encodeURIComponent("• Fiche d'admission des mineurs signée par les deux parents\n");
                     break;
                 case 'ca':
-                    body += encodeURIComponent("• Consentement à l'anesthésie\n");
+                    body += encodeURIComponent("• Consentement à l'anesthésie signé par les deux parents\n");
                     break;
                 case 'cc':
-                    body += encodeURIComponent("• Consentement à la chirurgie\n");
+                    body += encodeURIComponent("• Consentement à la chirurgie signée par les deux parents\n");
                     break;
                 case 'da':
                     body += encodeURIComponent("• Directives anticipées\n");

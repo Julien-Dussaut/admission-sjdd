@@ -77,6 +77,9 @@ formulaireMajeurs.addEventListener('submit', function (e) {
                 case 'tt-donnees-majeur':
                     bodyMajeurs += encodeURIComponent("• Accord pour le traitement des données personnelles\n");
                     break;
+                case 'mutuelle':
+                    body += encodeURIComponent("• Carte de mutuelle\n");
+                    break;
             }
         }
     })

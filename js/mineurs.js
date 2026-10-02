@@ -44,6 +44,8 @@ const subject = encodeURIComponent("Urgent – Poursuite de votre préadmission 
 formulaire.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    const filesNumber = formulaire.querySelector('[name="files-number"]').value.trim();
+    const subjectWithReference = subject + encodeURIComponent(` - Références à rappeler ${filesNumber}`);
     let body = encodeURIComponent("Madame, Monsieur,\n\nL'intervention de votre enfant est programmée le " + datePrepaFr + " et nous sommes heureux de l'accueillir prochainement.\n\n Afin de valider sa prise en charge, nous vous remercions de bien vouloir compléter dès que possible la préadmission en ligne et d'y joindre les documents suivants, obligatoires avant toute intervention : \n");
 
     const missingDocuments = formulaire.querySelectorAll('input[type=checkbox]:checked');
@@ -102,7 +104,7 @@ formulaire.addEventListener('submit', function (e) {
 
 
     let sendEmail = document.querySelector('#send-email-mineurs');
-    sendEmail.href = `mailto:${emailField.value.trim()}?subject=${subject}&body=${body}`;
+    sendEmail.href = `mailto:${emailField.value.trim()}?subject=${subjectWithReference}&body=${body}`;
     sendEmail.style.display = "block";
 });
 

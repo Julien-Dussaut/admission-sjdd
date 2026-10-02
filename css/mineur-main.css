@@ -1,54 +1,91 @@
 #mineur-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 50%;
-    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem 1rem;
+    box-sizing: border-box;
+    width: min(64rem, 92%);
+    margin: 1rem auto;
     border: 2px solid #f0801c;
     border-radius: 1rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 #mineur-form h2 {
-    padding: 1rem 0;
+    grid-column: 1 / -1;
+    padding: 0.8rem;
     text-align: center;
     background-color: #f0801c;
     border-top-left-radius: 0.8rem;
     border-top-right-radius: 0.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.35rem;
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-#checkAll {
-    margin-bottom: 1rem;
+#mineur-form .form-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    padding: 0.25rem 0.6rem;
 }
-#labelCheckAll {
+
+#mineur-form .form-field--select-all,
+#mineur-form .form-fields-row,
+#mineur-form .form-actions {
+    grid-column: 1 / -1;
+}
+
+#mineur-form #labelCheckAll {
     font-weight: bold;
 }
-.form-field {
-    padding: 0 2rem;
+
+#mineur-form .form-fields-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1rem;
 }
-.form-field label {
+
+#mineur-form .form-fields-row .form-field {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+}
+
+#mineur-form .form-field label {
     color: black;
     transition: all 0.5s;
 }
-.form-field label:hover {
+
+#mineur-form .form-field label:hover {
     color: #f0801c;
 }
 
-.form-field input[type="email"] {
-    margin: 1rem 0;
-    width: 60%;
-    padding: 0.2rem 0.5rem;
+#mineur-form .form-field input[type="email"],
+#mineur-form .form-field input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.45rem 0.5rem;
+    border: 1px solid #f0801c;
     border-radius: 0.4rem;
-    outline: 1px solid #f0801c;
-    border: none;
 }
 
-input[type="checkbox"] {
+#mineur-form .form-field input[type="email"]:focus-visible,
+#mineur-form .form-field input[type="text"]:focus-visible {
+    outline: 2px solid #f0801c;
+    outline-offset: 1px;
+}
+
+#mineur-form input[type="checkbox"] {
     accent-color: #f0801c;
+}
+
+#mineur-form .form-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 #generate-email-mineurs:disabled {
@@ -67,6 +104,17 @@ input[type="checkbox"] {
     text-align: center;
     display: none;
     text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    #mineur-form {
+        grid-template-columns: minmax(0, 1fr);
+        width: 92%;
+    }
+
+    #mineur-form .form-fields-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 

@@ -114,7 +114,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <td>PMSS 2025 - 4005 €</td>
+                            <td colspan="4">PMSS 2025 - 4005 €</td>
                         </tr>
                         <tr>
                             <td>%</td>
@@ -198,7 +198,7 @@
             <form id="mineur-form">
                 <h2>Cocher les documents manquants au dossier</h2>
 
-                <div class="form-field">
+                <div class="form-field form-field--select-all">
                     <input type="checkbox" name="checkAll" id="checkAll">
                     <label for="checkAll" id="labelCheckAll">Tout cocher</label>
                 </div>
@@ -247,14 +247,22 @@
                     <label for="mutuelle">Carte mutuelle</label>
                 </div>
 
-                <div class="form-field">
-                    <label for="mail">Email parent : </label>
-                    <input type="email" name="mail" id="mail" required>
+                <div class="form-fields-row form-fields-row--contact">
+                    <div class="form-field">
+                        <label for="files-number-mineurs">Numéro de dossier</label>
+                        <input type="text" name="files-number" id="files-number-mineurs" placeholder="Numéro de dossier">
+                    </div>
+                    <div class="form-field">
+                        <label for="mail">Email parent :</label>
+                        <input type="email" name="mail" id="mail" required>
+                    </div>
                 </div>
 
-                <button type="submit" class="custom-button" id="generate-email-mineurs" disabled>Générer
-                    l'email</button>
-                <a type="submit" class="custom-button" id="send-email-mineurs">Envoyer l'email</a>
+                <div class="form-actions">
+                    <button type="submit" class="custom-button" id="generate-email-mineurs" disabled>Générer
+                        l'email</button>
+                    <a type="submit" class="custom-button" id="send-email-mineurs">Envoyer l'email</a>
+                </div>
             </form>
         </section>
         <section id="majeurs">
@@ -264,7 +272,21 @@
 
                 <h2>Cocher les documents manquants au dossier</h2>
 
-                <div class="form-field">
+                <div class="form-fields-row form-fields-row--identity">
+                    <div class="form-field form-field--checkbox">
+                        <input type="checkbox" name="madame" id="madame">
+                        <label for="madame">Madame</label>
+                    </div>
+                    <div class="form-field form-field--checkbox">
+                        <input type="checkbox" name="monsieur" id="monsieur">
+                        <label for="monsieur">Monsieur</label>
+                    </div>
+                    <div class="form-field form-field--inline">
+                        <label for="files-number-majeurs">Numéro de dossier</label>
+                        <input type="text" name="files-number" id="files-number-majeurs" placeholder="Numéro de dossier">
+                    </div>
+                </div>
+                <div class="form-field form-field--select-all">
                     <input type="checkbox" name="checkAllMajeurs" id="checkAllMajeurs">
                     <label for="checkAllMajeurs" id="labelCheckAllMajeurs">Tous cocher</label>
                 </div>
@@ -297,18 +319,22 @@
                     <label for="tt-donnees-majeur">E-SATIS</label>
                 </div>
                 <div class="form-field">
-                    <input type="checkbox" name="mutuelle" id="mutuelle">
-                    <label for="mutuelle">Carte mutuelle</label>
+                    <input type="checkbox" name="mutuelle" id="mutuelle-majeur">
+                    <label for="mutuelle-majeur">Carte mutuelle</label>
                 </div>
 
-                <div class="form-field">
-                    <label for="mailMajeurs">Email patient : </label>
-                    <input type="email" name="mailMajeurs" id="mailMajeurs" required>
+                <div class="form-fields-row form-fields-row--contact">
+                    <div class="form-field form-field--inline">
+                        <label for="mailMajeurs">Email patient :</label>
+                        <input type="email" name="mailMajeurs" id="mailMajeurs" required>
+                    </div>
                 </div>
 
-                <button type="submit" class="custom-button" id="generate-email-majeurs" disabled>Générer
-                    l'email</button>
-                <a type="submit" class="custom-button" id="send-email-majeurs">Envoyer l'email</a>
+                <div class="form-actions">
+                    <button type="submit" class="custom-button" id="generate-email-majeurs" disabled>Générer
+                        l'email</button>
+                    <a type="submit" class="custom-button" id="send-email-majeurs">Envoyer l'email</a>
+                </div>
             </form>
         </section>
         <section id="devis-nas">

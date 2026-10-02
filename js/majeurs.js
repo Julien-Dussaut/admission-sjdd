@@ -5,7 +5,7 @@ function checkAll() {
     } else {
         label.textContent = "Tout cocher";
     }
-    const checkboxes = document.querySelectorAll('#majeur-form input[type="checkbox"]:not(#checkAll)');
+    const checkboxes = document.querySelectorAll('#majeur-form input[type="checkbox"]:not(#checkAllMajeurs):not(#madame):not(#monsieur)');
     checkboxes.forEach(checkbox => {
         checkbox.checked = this.checked;
     });
@@ -13,7 +13,7 @@ function checkAll() {
 
 function validerFormulaire() {
     const emailField = document.querySelector("#mailMajeurs");
-    const checkboxesFields = document.querySelectorAll('#majeur-form input[type=checkbox]:checked');
+    const checkboxesFields = document.querySelectorAll('#majeur-form input[type=checkbox]:checked:not(#checkAllMajeurs):not(#madame):not(#monsieur)');
 
     if (emailField.value.trim() !== '' && checkboxesFields.length > 0) {
         document.querySelector('#generate-email-majeurs').disabled = false;
@@ -44,10 +44,17 @@ const subjectMajeurs = encodeURIComponent("Urgent – Poursuite de votre préadm
 formulaireMajeurs.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    let bodyMajeurs = encodeURIComponent("Madame, Monsieur,\n\nVotre intervention est programmée le " + datePrepaFrMajeurs + " et nous sommes heureux de vous accueillir prochainement au sein de notre établissement.\n");
+    const madameChecked = formulaireMajeurs.querySelector('#madame').checked;
+    const monsieurChecked = formulaireMajeurs.querySelector('#monsieur').checked;
+    const salutation = madameChecked !== monsieurChecked
+        ? (madameChecked ? 'Madame' : 'Monsieur')
+        : 'Madame, Monsieur';
+    const filesNumber = formulaireMajeurs.querySelector('[name="files-number"]').value.trim();
+    const subjectWithReference = subjectMajeurs + encodeURIComponent(` - Références à rappeler ${filesNumber}`);
+    let bodyMajeurs = encodeURIComponent(salutation + ",\n\nVotre intervention est programmée le " + datePrepaFrMajeurs + " et nous sommes heureux de vous accueillir prochainement au sein de notre établissement.\n");
     bodyMajeurs += encodeURIComponent("Afin de valider votre prise en charge, nous vous remercions de bien vouloir compléter dès que possible la préadmission en ligne ");
 
-    const missingDocuments = formulaireMajeurs.querySelectorAll('input[type=checkbox]:checked');
+    const missingDocuments = formulaireMajeurs.querySelectorAll('input[type=checkbox]:checked:not(#checkAllMajeurs):not(#madame):not(#monsieur)');
     if (missingDocuments.length > 1) {
         bodyMajeurs += encodeURIComponent("\n et d'y joindre les documents suivants : \n\n");
     } else if (missingDocuments == 1) {
@@ -77,7 +84,7 @@ formulaireMajeurs.addEventListener('submit', function (e) {
                 case 'tt-donnees-majeur':
                     bodyMajeurs += encodeURIComponent("• Accord pour le traitement des données personnelles\n");
                     break;
-                case 'mutuelle':
+                case 'mutuelle-majeur':
                     bodyMajeurs += encodeURIComponent("• Carte de mutuelle\n");
                     break;
             }
@@ -91,7 +98,7 @@ formulaireMajeurs.addEventListener('submit', function (e) {
 
 
     let sendEmailMajeurs = document.querySelector('#send-email-majeurs');
-    sendEmailMajeurs.href = `mailto:${emailFieldMajeurs.value.trim()}?subject=${subjectMajeurs}&body=${bodyMajeurs}`;
+    sendEmailMajeurs.href = `mailto:${emailFieldMajeurs.value.trim()}?subject=${subjectWithReference}&body=${bodyMajeurs}`;
     sendEmailMajeurs.style.display = "block";
 });
 

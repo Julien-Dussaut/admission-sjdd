@@ -21,7 +21,7 @@
 main {
     width: 75dvw;
     /* padding: 0 2rem; */
-    margin: 0 auto;
+    margin: 0 auto 2rem;
 }
 
 h1 {

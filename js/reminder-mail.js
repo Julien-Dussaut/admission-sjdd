@@ -40,11 +40,21 @@ formulaire.addEventListener('change', validerFormulaire);
 
 
 const subject = encodeURIComponent("Urgent – Poursuite de votre préadmission en ligne avant votre intervention");
-let body = window.location.pathname.includes('mineurs') ? encodeURIComponent("Madame, Monsieur,\n\nL'intervention de votre enfant est programmée pour le " + datePrepaFr + " et, à ce jour, des documents nous font défaut.\nNous vous invitons à compléter la préadmission en ligne de votre enfant dans les plus brefs délais, afin de préparer au mieux la prise en charge de votre enfant lors de sa venue.\n") : encodeURIComponent("Madame, Monsieur,\n\nVotre intervention est programmée pour le " + datePrepaFr + " et, à ce jour, votre espace patient n'a pas encore été renseigné.\nNous vous invitons à compléter la préadmission en ligne dans les plus brefs délais, afin de préparer au mieux la prise en charge le jour de votre venue.\n");
+const isMinor = window.location.pathname.includes('mineurs');
 
 formulaire.addEventListener('submit', function (e) {
     e.preventDefault();
-    const missingDocuments = formulaire.querySelectorAll('input[type=checkbox]:checked');
+    const filesNumber = formulaire.querySelector('[name="files-number"]')?.value.trim() || '';
+    const subjectWithReference = subject + encodeURIComponent(` - Références à rappeler ${filesNumber}`);
+    const madameChecked = formulaire.querySelector('#madame')?.checked;
+    const monsieurChecked = formulaire.querySelector('#monsieur')?.checked;
+    const salutation = madameChecked !== monsieurChecked
+        ? (madameChecked ? 'Madame' : 'Monsieur')
+        : 'Madame, Monsieur';
+    let body = isMinor
+        ? encodeURIComponent("Madame, Monsieur,\n\nL'intervention de votre enfant est programmée pour le " + datePrepaFr + " et, à ce jour, des documents nous font défaut.\nNous vous invitons à compléter la préadmission en ligne de votre enfant dans les plus brefs délais, afin de préparer au mieux la prise en charge de votre enfant lors de sa venue.\n")
+        : encodeURIComponent(salutation + ",\n\nVotre intervention est programmée pour le " + datePrepaFr + " et, à ce jour, votre espace patient n'a pas encore été renseigné.\nNous vous invitons à compléter la préadmission en ligne dans les plus brefs délais, afin de préparer au mieux la prise en charge le jour de votre venue.\n");
+    const missingDocuments = formulaire.querySelectorAll('input[type=checkbox]:checked:not(#checkAll):not(#checkAllMajeurs):not(#madame):not(#monsieur)');
     if (missingDocuments.length > 1) {
         body += encodeURIComponent("\nLes documents manquants sont les suivants : \n\n");
     } else if (missingDocuments == 1) {
@@ -87,6 +97,10 @@ formulaire.addEventListener('submit', function (e) {
                 case 'tt-donnees':
                     body += encodeURIComponent("• Accord pour le traitement des données personnelles\n");
                     break;
+                case 'mutuelle':
+                case 'mutuelle-majeur':
+                    body += encodeURIComponent("• Carte de mutuelle\n");
+                    break;
             }
         }
     })
@@ -98,7 +112,7 @@ formulaire.addEventListener('submit', function (e) {
 
 
     let sendEmail = document.querySelector('#send-email');
-    sendEmail.href = `mailto:${emailField.value.trim()}?subject=${subject}&body=${body}`;
+    sendEmail.href = `mailto:${emailField.value.trim()}?subject=${subjectWithReference}&body=${body}`;
     sendEmail.style.display = "block";
 })
 

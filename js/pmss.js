@@ -18,6 +18,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyIcon = '<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>';
   const checkIcon = '<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>';
 
+  const createCopyButton = (value) => {
+    const copyButton = document.createElement('button');
+    const copyLabel = `Copier le montant ${value}`;
+    let resetTimer;
+
+    copyButton.type = 'button';
+    copyButton.className = 'pmss-copy-button';
+    copyButton.setAttribute('aria-label', copyLabel);
+    copyButton.title = copyLabel;
+    copyButton.innerHTML = copyIcon;
+    copyButton.addEventListener('click', async () => {
+      window.clearTimeout(resetTimer);
+
+      try {
+        await navigator.clipboard.writeText(value);
+        copyButton.innerHTML = checkIcon;
+        copyButton.classList.add('is-copied');
+        copyButton.setAttribute('aria-label', 'Montant copié');
+        copyButton.title = 'Montant copié';
+      } catch {
+        copyButton.setAttribute('aria-label', 'Copie impossible');
+        copyButton.title = 'Copie impossible';
+      }
+
+      resetTimer = window.setTimeout(() => {
+        copyButton.innerHTML = copyIcon;
+        copyButton.classList.remove('is-copied');
+        copyButton.setAttribute('aria-label', copyLabel);
+        copyButton.title = copyLabel;
+      }, 2000);
+    });
+
+    return copyButton;
+  };
+
   // Calculs en centimes pour éviter les erreurs d'arrondi
   const calcul = (pct) => {
     const mutuelle = Math.round((PMSS * 100 * pct) / 100);
@@ -56,36 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         amount.textContent = valeur;
         cell.appendChild(amount);
 
-        const copyButton = document.createElement('button');
-        const copyLabel = `Copier le montant ${valeur}`;
-        let resetTimer;
-        copyButton.type = 'button';
-        copyButton.className = 'pmss-copy-button';
-        copyButton.setAttribute('aria-label', copyLabel);
-        copyButton.title = copyLabel;
-        copyButton.innerHTML = copyIcon;
-        copyButton.addEventListener('click', async () => {
-          window.clearTimeout(resetTimer);
-
-          try {
-            await navigator.clipboard.writeText(valeur);
-            copyButton.innerHTML = checkIcon;
-            copyButton.classList.add('is-copied');
-            copyButton.setAttribute('aria-label', 'Montant copié');
-            copyButton.title = 'Montant copié';
-          } catch {
-            copyButton.setAttribute('aria-label', 'Copie impossible');
-            copyButton.title = 'Copie impossible';
-          }
-
-          resetTimer = window.setTimeout(() => {
-            copyButton.innerHTML = copyIcon;
-            copyButton.classList.remove('is-copied');
-            copyButton.setAttribute('aria-label', copyLabel);
-            copyButton.title = copyLabel;
-          }, 2000);
-        });
-        cell.appendChild(copyButton);
+        cell.appendChild(createCopyButton(valeur));
       });
     });
   }
@@ -102,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (Number.isNaN(pct) || pct < 0) {
         outMutuelle.value = outConfort.value = outSuite.value = '—';
+        outMutuelle.parentElement.querySelector('.pmss-copy-button')?.remove();
         return;
       }
 
@@ -109,6 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
       outMutuelle.value = formatEuro(mutuelle) + ' €';
       outConfort.value = formatEuro(confort) + ' €';
       outSuite.value = formatEuro(suite) + ' €';
+      outMutuelle.parentElement.querySelector('.pmss-copy-button')?.remove();
+      outMutuelle.parentElement.appendChild(createCopyButton(outMutuelle.value));
     });
   }
 });

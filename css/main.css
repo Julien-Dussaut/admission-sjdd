@@ -33,6 +33,6 @@ h1 {
     padding-top: 2rem;
 }
 
-#majeurs, #devis-nas, #devis-hn {
+#mineurs, #majeurs, #devis-nas, #devis-hn {
     display: none;
 }

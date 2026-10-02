@@ -13,6 +13,7 @@
     <link href="./css/nas-main.css" rel="stylesheet" />
     <link href="./css/hn-main.css" rel="stylesheet" />
     <link href="./css/modal.css" rel="stylesheet" />
+    <link href="./css/infos.css" rel="stylesheet" />
 
     <title>Admissions - SJDD</title>
 </head>
@@ -28,7 +29,8 @@
             </div>
         </div>
         <nav>
-            <a href="#mineurs" class="active">Relance mineurs</a>
+            <a href="#informations" class="active">Informations</a>
+            <a href="#mineurs">Relance mineurs</a>
             <a href="#majeurs">Relance majeurs</a>
             <a href="#devis-nas">Devis NAS</a>
             <a href="#devis-hn">Devis HN</a>
@@ -36,6 +38,156 @@
 
     </header>
     <main>
+        <section id="informations">
+            <h1>Informations utiles</h1>
+            <article id="telephone">
+                <h2>Numéros utiles</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Service / Nom</td>
+                            <td>Numéro</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ana</td>
+                            <td>5570</td>
+                        </tr>
+                        <tr>
+                            <td>Prépa</td>
+                            <td>2038 / 4692</td>
+                        </tr>
+                        <tr>
+                            <td>Accueil</td>
+                            <td>6009 / 9</td>
+                        </tr>
+                        <tr>
+                            <td>Fast track</td>
+                            <td>4633</td>
+                        </tr>
+                        <tr>
+                            <td>Infirmières 1er</td>
+                            <td>2100</td>
+                        </tr>
+                        <tr>
+                            <td>Infirmières 2ème</td>
+                            <td>2200</td>
+                        </tr>
+                        <tr>
+                            <td>Infirmières 3ème</td>
+                            <td>2300</td>
+                        </tr>
+                        <tr>
+                            <td>Myriam</td>
+                            <td>4677</td>
+                        </tr>
+                        <tr>
+                            <td>Facturation</td>
+                            <td>2440 / 2324 / 2490</td>
+                        </tr>
+                        <tr>
+                            <td>Bloc (responsable)</td>
+                            <td>6622 / 8004</td>
+                        </tr>
+                        <tr>
+                            <td>Secrétariat anesth</td>
+                            <td>2342</td>
+                        </tr>
+                        <tr>
+                            <td>Secrétariat consult</td>
+                            <td>2496</td>
+                        </tr>
+                        <tr>
+                            <td>Admission (porte 2 & 3)</td>
+                            <td>6690</td>
+                        </tr>
+                        <tr>
+                            <td>Admission (porte 4)</td>
+                            <td>8020</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            <article id="pmss">
+                <h2>PMSS</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>PMSS 2025 - 4005 €</td>
+                        </tr>
+                        <tr>
+                            <td>%</td>
+                            <td>Part mutuelle</td>
+                            <td>Part patient (CP)</td>
+                            <td>Part patient (suite)</td>
+                        </tr>
+                    </thead>
+                </table>
+                <section id="pmss-calcul">
+                    <label for="pmss-pourcentage">Pourcentage du PMSS pris en charge par la mutuelle</label>
+                    <input type="number" id="pmss-pourcentage" min="0" step="0.1" inputmode="decimal" placeholder="Ex. 2,5">
+
+                    <dl>
+                        <dt>Part mutuelle</dt>
+                        <dd><output id="pmss-mutuelle">—</output></dd>
+
+                        <dt>Reste à charge en chambre confort (210 €)</dt>
+                        <dd><output id="pmss-confort">—</output></dd>
+
+                        <dt>Reste à charge en chambre suite (300 €)</dt>
+                        <dd><output id="pmss-suite">—</output></dd>
+                    </dl>
+                </section>
+            </article>
+            <article id="general">
+                <h2>Infos générales</h2>
+                <table>
+                    <tr>
+                        <td>FINESS</td>
+                        <td>750300121</td>
+                    </tr>
+                    <tr>
+                        <td>SIRET</td>
+                        <td>75 331 332 900 249</td>
+                    </tr>
+                    <tr>
+                        <td>DMT hospi</td>
+                        <td>03 137</td>
+                    </tr>
+                    <tr>
+                        <td>DMT ambu</td>
+                        <td>23 137</td>
+                    </tr>
+                    <tr>
+                        <td>DMT chimio</td>
+                        <td>19 302</td>
+                    </tr>
+                </table>
+            </article>
+            <article id="chambres">
+                <h2>Chambres seules</h2>
+                <thead>
+                    <tr>
+                        <td>1er</td>
+                        <td>2ème</td>
+                        <td>3ème</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            105 - 
+                            118
+                        </td>
+                        <td>
+                            201 - 203 - 205 - 207 - 209 - 211 - 214 - 215 - 216 - 217 - 221 - 223 - 224 - 225 (suite) - 226 - 227 - 228 - 229 - 230
+                        </td>
+                        <td>301 - 302 - 303 - 304 - 307 - 310 - 311 - 312 - 313 - 316</td>
+                    </tr>
+                </tbody>
+            </article>
+        </section>
         <section id="mineurs">
             <h1>Relance patient mineur pour dossier incomplet</h1>
 
@@ -224,6 +376,7 @@
     <script src="./js/majeurs.js"></script>
     <script src="./js/devis-nas.js"></script>
     <script src="./js/devis-hn.js"></script>
+    <script src="./js/pmss.js"></script>
 
 </body>
 

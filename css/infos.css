@@ -1,0 +1,99 @@
+#informations {
+    #telephone, #pmss, #general, #chambre {
+        h2 {
+            margin-bottom: 0.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    h1 {
+        grid-column: 1 / 3;
+        margin-bottom: 1rem;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        border: 1px solid #f0801c;
+        border-radius: 0.5rem;
+
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+            border-bottom: 1px solid #f0801c;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        th {
+            background-color: #f0801c;
+            color: white;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #fbe3cc;
+        }
+
+        tbody tr:hover {
+            background-color: #dc6e11;
+        }
+    }
+
+    #pmss thead tr:first-child {
+        background: linear-gradient(to bottom, transparent calc(100% - 1px), #f0801c calc(100% - 1px));
+
+        td {
+            border-bottom: 0;
+        }
+    }
+
+    #pmss .pmss-copy-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-left: 0.25rem;
+        padding: 0;
+        border: 0;
+        border-radius: 0.25rem;
+        background: transparent;
+        color: inherit;
+        vertical-align: middle;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(0 0 0 / 10%);
+        }
+
+        &:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+        }
+
+        &.is-copied {
+            color: #276738;
+        }
+
+        svg {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+
+    #telephone, #general {
+        table {
+            width: 75%;
+            margin: 0 auto;
+        }
+    }
+}

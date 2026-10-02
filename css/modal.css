@@ -1,12 +1,7 @@
 #modal {
     visibility: hidden;
-    position: absolute;
-    width: 99.6dvw;
-    height: 99.6dvh;
-    /* top: 1dvh;
-    left: 1dvw; */
-    top: 0;
-    left: 0;
+    position: fixed;
+    inset: 0;
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;

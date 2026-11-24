@@ -182,8 +182,52 @@
                 </section>
                 <article class="card col-8 proc-pane" id="proc-pane" aria-live="polite">
                     <h2 id="proc-title">Préadmission</h2>
-                    <span class="soon">Bientôt</span>
-                    <p>Le contenu de cette procédure sera disponible prochainement.</p>
+                    <div class="proc-soon" id="proc-soon" hidden>
+                        <span class="soon">Bientôt</span>
+                        <p>Le contenu de cette procédure sera disponible prochainement.</p>
+                    </div>
+                    <div class="proc-body" data-proc="Préadmission">
+                        <p class="proc-sub">Patient majeur</p>
+                        <div class="proc-alert" role="note">
+                            <span class="proc-alert-icon" aria-hidden="true">!</span>
+                            <p>Tenter de faire faire la préadmission <strong>en ligne via l'espace patient</strong>. Si impossible, suivre la procédure ci-dessous.</p>
+                        </div>
+                        <ol class="steps">
+                            <li><span class="app app--expert">Expert</span>Demander la <strong>date de naissance</strong> et le <strong>nom</strong> du patient.</li>
+                            <li><span class="app app--expert">Expert</span>Chercher le patient dans Expert.</li>
+                            <li><span class="app app--expert">Expert</span>Vérifier la <strong>pièce d'identité</strong> si elle est présente dans Expert.</li>
+                            <li><span class="app app--expert">Expert</span>Si elle n'y est pas, la scanner et la mettre dans Expert (catégorie <strong>Administratif</strong>, <strong>Identité</strong>).</li>
+                            <li><span class="app app--expert">Expert</span>Le numéro de dossier se trouve dans l'onglet <strong>Séjours</strong> d'Expert.</li>
+                            <li><span class="app app--hm">HM</span>Entrer le <strong>numéro de séjour</strong>.</li>
+                            <li><span class="app app--hm">HM</span>Aller dans l'onglet <strong>Synthèse générale</strong>.</li>
+                            <li><span class="app app--doc">Documents</span>Imprimer les documents suivants :
+                                <ul class="steps-sub steps-docs">
+                                    <li><span class="doc-name">Consentement anesthésie</span></li>
+                                    <li><span class="doc-name">Consentement chirurgie</span></li>
+                                    <li><span class="doc-name">Personne à prévenir / de confiance</span></li>
+                                    <li><span class="doc-name">Directives anticipées</span></li>
+                                    <li><span class="doc-name">Forfait ambulatoire</span> ou <span class="doc-name">Forfait hospitalisation</span> selon le séjour <em>(un seul choix possible)</em></li>
+                                    <li><span class="doc-name">Fiche de traitement des données personnelles</span></li>
+                                </ul>
+                            </li>
+                            <li><span class="app app--doc">Documents</span>Faire remplir les documents au patient.</li>
+                            <li><span class="app app--expert">Expert</span>Scanner tous les documents et les ajouter dans Expert (catégorie <strong>Administratif</strong>, <strong>Documents pour admissions</strong>). Le fichier doit être nommé avec la <strong>date de l'intervention</strong>.</li>
+                            <li><span class="app app--hm">HM</span>Dans l'onglet <strong>Patient</strong>, faire l'<strong>appel INSI</strong> grâce au bouton situé en bas de page.</li>
+                            <li><span class="app app--hm">HM</span>Contrôler que le retour correspond bien à l'identité de la pièce d'identité du patient. En cas d'incohérence, mettre le curseur sur <strong>Refusé</strong>, choisir ensuite la raison et ajouter dans les commentaires <strong>« Flyer INSEE à donner »</strong>, puis mettre ledit flyer dans le dossier.</li>
+                            <li><span class="app app--hm">HM</span>Ajouter, au minimum, le <strong>nom</strong>, le <strong>prénom</strong> et le <strong>numéro de téléphone</strong> de la personne à prévenir.</li>
+                            <li><span class="app app--hm">HM</span>Dans l'onglet <strong>Séjour</strong>, ajouter l'anesthésiste de l'intervention en tant qu'<strong>anesthésiste responsable</strong>.</li>
+                            <li><span class="app app--hm">HM</span>Si le patient a refusé un ou les deux choix du traitement des données personnelles, l'indiquer dans la <strong>zone libre</strong> de ce même onglet.</li>
+                            <li><span class="app app--hm">HM</span>Dans l'onglet <strong>Couverture sociale</strong>, ajouter le <strong>numéro de sécurité sociale</strong> avec la <strong>clé</strong> dans le champ prévu.
+                                <ul class="steps-sub">
+                                    <li>Si le numéro n'est pas présent dans le champ et que l'appel INSI a réussi, il est disponible en passant la souris sur l'<strong>avatar</strong> en haut à gauche de la page.</li>
+                                </ul>
+                            </li>
+                            <li><span class="app app--hm">HM</span>Faire l'<strong>appel CDRI</strong>.</li>
+                            <li><span class="app app--hm">HM</span>Une fois l'appel terminé, cliquer sur la <strong>pastille CDRI</strong> pour voir si le patient est exonéré de certains soins ou s'il est bénéficiaire de la <strong>CSS</strong> (nouveau nom de la CMU).</li>
+                            <li><span class="app app--hm">HM</span><strong>Valider</strong> pour revenir à l'écran principal du séjour, cliquer sur <strong>Impressions</strong>, cocher uniquement <strong>Petites étiquettes</strong> et imprimer.</li>
+                            <li><span class="app app--doc">Documents</span>Coller une étiquette sur la <strong>fiche suiveuse</strong> et mettre les autres dans le dossier avec les documents signés.</li>
+                        </ol>
+                    </div>
                 </article>
             </div>
         </section>

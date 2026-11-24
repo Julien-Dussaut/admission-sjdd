@@ -8,6 +8,19 @@
         return;
     }
 
+    const bodies = [...document.querySelectorAll('.proc-body')];
+    const soon = document.getElementById('proc-soon');
+
+    const show = name => {
+        let found = false;
+        bodies.forEach(body => {
+            const match = body.dataset.proc === name;
+            body.hidden = !match;
+            found = found || match;
+        });
+        soon.hidden = found;
+    };
+
     const buttons = [...list.querySelectorAll('.proc-item')];
 
     const normalize = text => text
@@ -20,8 +33,11 @@
             buttons.forEach(other => other.removeAttribute('aria-current'));
             button.setAttribute('aria-current', 'true');
             title.textContent = button.textContent;
+            show(button.dataset.proc);
         });
     });
+
+    show('Préadmission');
 
     search.addEventListener('input', () => {
         const query = normalize(search.value.trim());

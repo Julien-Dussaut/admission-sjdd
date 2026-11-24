@@ -15,6 +15,12 @@ const emailFieldMajeurs = document.querySelector('#mailMajeurs');
 const filesNumberFieldMajeurs = document.querySelector('#files-number-majeurs');
 const countLabelMajeurs = document.getElementById('majeurs-count');
 
+// Civilité : un seul choix à la fois, le dernier cliqué prime (décocher = « Madame, Monsieur »)
+const civilites = ['#madame', '#monsieur'].map((id) => formulaireMajeurs.querySelector(id));
+civilites.forEach((box) => box.addEventListener('change', () => {
+    if (box.checked) civilites.forEach((autre) => { if (autre !== box) autre.checked = false; });
+}));
+
 function documentCheckboxesMajeurs() {
     return [...formulaireMajeurs.querySelectorAll('.doc-grid input[type="checkbox"]')];
 }

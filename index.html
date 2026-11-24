@@ -54,16 +54,18 @@
                             <div class="tile search-item"><span>Admission (porte 2 et 3)</span><strong>6690</strong></div>
                             <div class="tile search-item"><span>Admission (porte 4)</span><strong>8020</strong></div>
                             <div class="tile search-item"><span>Prépa</span><strong>2038 / 4692</strong></div>
-                            <div class="tile search-item"><span>Fast track</span><strong>4633</strong></div>
+                            <div class="tile search-item"><span>Ana</span><strong>5570</strong></div>
                         </div>
                     </div>
                     <div class="search-group">
-                        <h3 class="group-label">Étages et bloc</h3>
+                        <h3 class="group-label">Paramédical</h3>
                         <div class="tiles">
                             <div class="tile search-item"><span>Infirmières 1er</span><strong>2100</strong></div>
                             <div class="tile search-item"><span>Infirmières 2ème</span><strong>2200</strong></div>
                             <div class="tile search-item"><span>Infirmières 3ème</span><strong>2300</strong></div>
                             <div class="tile search-item"><span>Bloc (responsable)</span><strong>6622 / 8004</strong></div>
+                            <div class="tile search-item"><span>Myriam</span><strong>4677</strong></div>
+                            <div class="tile search-item"><span>Fast track</span><strong>4633</strong></div>
                         </div>
                     </div>
                     <div class="search-group">
@@ -72,13 +74,6 @@
                             <div class="tile search-item"><span>Secrétariat anesth</span><strong>2342</strong></div>
                             <div class="tile search-item"><span>Secrétariat consult</span><strong>2496</strong></div>
                             <div class="tile search-item"><span>Facturation</span><strong>2440 / 2324 / 2490</strong></div>
-                        </div>
-                    </div>
-                    <div class="search-group">
-                        <h3 class="group-label">Autres</h3>
-                        <div class="tiles">
-                            <div class="tile search-item"><span>Ana</span><strong>5570</strong></div>
-                            <div class="tile search-item"><span>Myriam</span><strong>4677</strong></div>
                         </div>
                     </div>
                     </div>
@@ -495,8 +490,20 @@
             </form>
         </div>
     </div>
+    <div id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+        <div id="confirm-content">
+            <h2 id="confirm-title">Journée en préparation</h2>
+            <p>C'est toujours cette journée qui est en préparation ?</p>
+            <strong id="confirm-date"></strong>
+            <div class="confirm-actions">
+                <button type="button" id="confirm-yes" class="custom-button">Oui</button>
+                <button type="button" id="confirm-no" class="custom-button">Non, changer la date</button>
+            </div>
+        </div>
+    </div>
     <script src="./js/header-date.js"></script>
     <script src="./js/modal-date.js"></script>
+    <script src="./js/confirm-date.js"></script>
     <script src="./js/navigation.js"></script>
     <script src="./js/email.js"></script>
     <script src="./js/mineurs.js"></script>

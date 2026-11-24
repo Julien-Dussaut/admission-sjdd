@@ -713,3 +713,37 @@
     border-radius: 10px;
     color: #7a271a;
 }
+
+/* Pastilles supplémentaires et bouton de démonstration */
+.app--site {
+    background-color: var(--tint);
+    color: var(--accent-text);
+}
+
+.app--outlook {
+    background-color: #d3e6f9;
+    color: #0a4f94;
+}
+
+.btn-demo {
+    height: 34px;
+    margin: 0 0.125rem;
+    padding: 0 0.875rem;
+    font-size: 0.875rem;
+    vertical-align: middle;
+    cursor: default;
+    pointer-events: none;
+}
+
+.btn-demo svg {
+    width: 16px;
+    height: 16px;
+}
+
+.proc-body {
+    margin-top: 1.25rem;
+}
+
+.proc-body > .seg {
+    margin-top: 0;
+}

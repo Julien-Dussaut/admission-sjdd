@@ -169,7 +169,8 @@
                         </div>
                     </div>
                     <ul class="proc-list" id="proc-list">
-                        <li><button type="button" class="proc-item" data-proc="Préadmission" aria-current="true">Préadmission</button></li>
+                        <li><button type="button" class="proc-item" data-proc="Préadmission patient majeur" aria-current="true">Préadmission patient majeur</button></li>
+                        <li><button type="button" class="proc-item" data-proc="Préadmission patient mineur">Préadmission patient mineur</button></li>
                         <li><button type="button" class="proc-item" data-proc="Admission">Admission</button></li>
                         <li><button type="button" class="proc-item" data-proc="Prépa ambulatoire">Prépa ambulatoire</button></li>
                         <li><button type="button" class="proc-item" data-proc="Prépa hospitalisation">Prépa hospitalisation</button></li>
@@ -184,22 +185,17 @@
                     <p class="empty-state" id="proc-empty" hidden>Aucune procédure trouvée.</p>
                 </section>
                 <article class="card col-8 proc-pane" id="proc-pane" aria-live="polite">
-                    <h2 id="proc-title">Préadmission</h2>
+                    <h2 id="proc-title">Préadmission patient majeur</h2>
                     <div class="proc-soon" id="proc-soon" hidden>
                         <span class="soon">Bientôt</span>
                         <p>Le contenu de cette procédure sera disponible prochainement.</p>
                     </div>
-                    <div class="proc-body" data-proc="Préadmission">
-                        <div class="seg" role="radiogroup" aria-label="Type de patient">
-                            <label><input type="radio" name="preadm-type" value="majeur" checked>Patient majeur</label>
-                            <label><input type="radio" name="preadm-type" value="mineur">Patient mineur</label>
-                        </div>
+                    <div class="proc-body" data-proc="Préadmission patient majeur">
 
                         <div class="proc-alert" role="note">
                             <span class="proc-alert-icon" aria-hidden="true">!</span>
                             <p>Tenter de faire faire la préadmission <strong>en ligne via l'espace patient</strong>. Si impossible, suivre la procédure ci-dessous.</p>
                         </div>
-                        <div class="proc-variant" data-variant="majeur">
 
                         <ol class="steps">
                             <li><span class="app app--expert">Expert</span>Demander la <strong>date de naissance</strong> et le <strong>nom</strong> du patient.</li>
@@ -236,8 +232,13 @@
                             <li><span class="app app--hm">HM</span><strong>Valider</strong> pour revenir à l'écran principal du séjour, cliquer sur <strong>Impressions</strong>, cocher uniquement <strong>Petites étiquettes</strong> et imprimer.</li>
                             <li><span class="app app--doc">Documents</span>Coller une étiquette sur la <strong>fiche suiveuse</strong> et mettre les autres dans le dossier avec les documents signés.</li>
                         </ol>
+                    </div>
+                    <div class="proc-body" data-proc="Préadmission patient mineur">
+
+                        <div class="proc-alert" role="note">
+                            <span class="proc-alert-icon" aria-hidden="true">!</span>
+                            <p>Tenter de faire faire la préadmission <strong>en ligne via l'espace patient</strong>. Si impossible, suivre la procédure ci-dessous.</p>
                         </div>
-                        <div class="proc-variant" data-variant="mineur" hidden>
 
                         <ol class="steps">
                             <li><span class="app app--expert">Expert</span>Demander la <strong>date de naissance</strong> et le <strong>nom</strong> du patient.</li>
@@ -282,7 +283,6 @@
                             <li><span class="app app--hm">HM</span><strong>Valider</strong> pour revenir à l'écran principal du séjour, cliquer sur <strong>Impressions</strong>, cocher uniquement <strong>Petites étiquettes</strong> et imprimer.</li>
                             <li><span class="app app--doc">Documents</span>Coller une étiquette sur la <strong>fiche suiveuse</strong> et mettre les autres dans le dossier avec les documents signés.</li>
                         </ol>
-                        </div>
                     </div>
                     <div class="proc-body" data-proc="Patient Hors Nomenclature">
                         <ol class="steps">

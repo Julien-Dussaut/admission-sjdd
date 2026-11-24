@@ -617,13 +617,13 @@
 }
 
 .app--expert {
-    background-color: #e3ecf8;
-    color: #1f4a85;
+    background-color: #e2f1e6;
+    color: #1d5c33;
 }
 
 .app--hm {
-    background-color: #e2f1e6;
-    color: #1d5c33;
+    background-color: #e3ecf8;
+    color: #1f4a85;
 }
 
 .app--doc {
@@ -661,4 +661,55 @@
 
 .doc-name {
     font-weight: 600;
+}
+
+/* Variantes d'une procédure (majeur / mineur) */
+.proc-body > .seg {
+    margin-top: 0.75rem;
+}
+
+.proc-variant[hidden] {
+    display: none;
+}
+
+.sign-red {
+    margin-left: auto;
+    padding: 0.0625rem 0.5rem;
+    background-color: #fde8e8;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #b42318;
+}
+
+/* Étape « bis » en rouge */
+.steps > li.step--bis {
+    counter-increment: none;
+}
+
+.steps > li.step--bis::before {
+    content: attr(data-bis);
+    width: auto;
+    min-width: 30px;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: #fde8e8;
+    border-color: #d92d20;
+    color: #b42318;
+    white-space: nowrap;
+}
+
+.steps > li.step--bis {
+    padding-left: 4rem;
+}
+
+.steps-warn {
+    margin: 0;
+    padding: 0.75rem 1rem 0.75rem 2rem;
+    list-style: disc;
+    background-color: #fef3f2;
+    border: 1.5px solid #d92d20;
+    border-radius: 10px;
+    color: #7a271a;
 }

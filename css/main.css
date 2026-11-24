@@ -235,3 +235,25 @@ main h1 {
     color: #6f665c;
     cursor: not-allowed;
 }
+
+/* Header et colonnes d'aide qui restent visibles au défilement (grands écrans) */
+:root {
+    --header-h: 3.75rem;
+    --sticky-top: calc(var(--header-h) + 1rem);
+}
+
+@media (min-width: 1000px) {
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .cols > aside.card,
+    .cols > #procedures-list-card {
+        position: sticky;
+        top: var(--sticky-top);
+        max-height: calc(100vh - var(--sticky-top) - 1rem);
+        overflow-y: auto;
+    }
+}

@@ -47,6 +47,7 @@ navLinks.forEach(link => {
         }
 
         sectionToActivate.style.display = 'flex';
+        window.scrollTo(0, 0);
         activeSection = sectionToActivate;
         fadeSection(sectionToActivate, [{ opacity: 0 }, { opacity: 1 }]);
     });

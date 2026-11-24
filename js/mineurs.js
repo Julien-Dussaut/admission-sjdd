@@ -2,14 +2,18 @@ const DOCS_MINEURS = {
     'cni-patient': "Passeport ou carte d'identité de l'enfant",
     'cni-pere': "Passeport ou carte d'identité du père",
     'cni-mere': "Passeport ou carte d'identité de la mère",
-    'lf-naissance': "Acte de naissance ou livret de famille complet",
-    'adm-mineur': "Fiche d'admission des mineurs signée par les deux parents",
-    'ca': "Consentement à l'anesthésie signé par les deux parents",
-    'cc': "Consentement à la chirurgie signée par les deux parents",
+    'lf-naissance': "Acte de naissance ou livret de famille complet (page de l'enfant et des parents)",
     'pap': "Personne à prévenir et de confiance",
     'vitale': "Carte vitale ou attestation de droit",
     'tt-donnees': "Accord pour le traitement des données personnelles",
     'mutuelle': "Carte de mutuelle"
+};
+
+// Documents à faire signer par les deux parents : on peut préciser quelle signature manque
+const DOCS_A_SIGNER = {
+    'adm-mineur': { label: "Fiche d'admission des mineurs", participe: 'signée' },
+    'ca': { label: "Consentement à l'anesthésie", participe: 'signé' },
+    'cc': { label: "Consentement à la chirurgie", participe: 'signé' }
 };
 
 const formulaire = document.querySelector('#mineur-form');
@@ -17,6 +21,39 @@ const checkboxAll = document.getElementById('checkAll');
 const emailField = document.querySelector('#mail');
 const filesNumberField = document.querySelector('#files-number-mineurs');
 const countLabel = document.getElementById('mineurs-count');
+const parent2Field = document.getElementById('parent2-field');
+const parent2Input = document.getElementById('mail2');
+const addParent2Button = document.getElementById('add-parent2');
+const removeParent2Button = document.getElementById('remove-parent2');
+
+function documentText(checkbox) {
+    const signable = DOCS_A_SIGNER[checkbox.id];
+    if (!signable) {
+        return DOCS_MINEURS[checkbox.id];
+    }
+
+    const missing = formulaire.querySelector(`input[name="sig-${checkbox.id}"]:checked`).value;
+    const base = `${signable.label} ${signable.participe}`;
+    if (missing === 'pere') {
+        return `${base} par le père (signature de la mère déjà présente)`;
+    }
+    if (missing === 'mere') {
+        return `${base} par la mère (signature du père déjà présente)`;
+    }
+    return `${base} par les deux parents`;
+}
+
+function parent2IsOpen() {
+    return !parent2Field.hidden;
+}
+
+function recipients() {
+    const emails = [emailField.value.trim()];
+    if (parent2IsOpen()) {
+        emails.push(parent2Input.value.trim());
+    }
+    return emails.filter(Boolean);
+}
 
 function documentCheckboxes() {
     return [...formulaire.querySelectorAll('.doc-grid input[type="checkbox"]')];
@@ -40,9 +77,10 @@ function buildMineurs() {
     } else if (missing.length === 1) {
         body += "\nLe document manquant est le suivant : \n\n";
     }
-    missing.forEach(checkbox => {
-        body += `• ${DOCS_MINEURS[checkbox.id]}\n`;
-    });
+    body += Mail.groupedList(missing.map(checkbox => ({
+        group: checkbox.closest('.doc-group').dataset.group,
+        text: documentText(checkbox)
+    })));
 
     body += "\n ⚠️ À noter : Tout dossier incomplet à J 2 entraînera le report de l’intervention.\n";
     body += "\nSi vous rencontrez la moindre difficulté, notre équipe d'accueil reste disponible pour vous accompagner, directement à la clinique ou par mail à l'adresse : admissionsambu@clinique-stjeandedieu.com .\n";
@@ -50,7 +88,7 @@ function buildMineurs() {
     body += "Cordialement,\n\n";
 
     return {
-        to: emailField.value.trim() || '[email du parent]',
+        to: recipients().join(',') || '[email du parent]',
         cc: '',
         subject,
         body
@@ -58,7 +96,12 @@ function buildMineurs() {
 }
 
 function mineursValide() {
-    return emailField.value.trim() !== '' && emailField.checkValidity() && missingDocuments().length > 0;
+    const secondParentValid = !parent2IsOpen()
+        || (parent2Input.value.trim() !== '' && parent2Input.checkValidity());
+    return emailField.value.trim() !== ''
+        && emailField.checkValidity()
+        && secondParentValid
+        && missingDocuments().length > 0;
 }
 
 function majCompteur() {
@@ -76,8 +119,31 @@ const updateMineurs = Mail.bind({
     isValid: mineursValide
 });
 
+function setParent2(open) {
+    parent2Field.hidden = !open;
+    addParent2Button.hidden = open;
+    addParent2Button.setAttribute('aria-expanded', String(open));
+    if (!open) {
+        parent2Input.value = '';
+    }
+    updateMineurs();
+}
+
+addParent2Button.addEventListener('click', () => {
+    setParent2(true);
+    parent2Input.focus();
+});
+
+removeParent2Button.addEventListener('click', () => {
+    setParent2(false);
+    emailField.focus();
+});
+
 formulaire.addEventListener('change', majCompteur);
-formulaire.addEventListener('reset', () => setTimeout(majCompteur));
+formulaire.addEventListener('reset', () => setTimeout(() => {
+    majCompteur();
+    setParent2(false);
+}));
 
 checkboxAll.addEventListener('change', () => {
     documentCheckboxes().forEach(checkbox => {

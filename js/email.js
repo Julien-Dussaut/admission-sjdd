@@ -37,6 +37,22 @@ const Mail = (() => {
         return `mailto:${to}?${params.join('&')}`;
     }
 
+    // Liste à puces regroupée par catégorie : [{ group, text }] -> texte brut
+    function groupedList(items) {
+        const groups = [];
+        items.forEach(({ group, text }) => {
+            let entry = groups.find(candidate => candidate.title === group);
+            if (!entry) {
+                entry = { title: group, lines: [] };
+                groups.push(entry);
+            }
+            entry.lines.push(`• ${text}`);
+        });
+        return groups
+            .map(entry => `${entry.title} :\n${entry.lines.join('\n')}\n`)
+            .join('\n');
+    }
+
     // prefix : mineurs, majeurs, nas, hn (identifiants des éléments d'aperçu)
     // build() renvoie { to, cc, subject, body } ; isValid() dit si on peut envoyer
     function bind({ prefix, form, build, isValid }) {
@@ -56,7 +72,7 @@ const Mail = (() => {
             current = build();
             const valid = isValid();
 
-            to.textContent = current.to;
+            to.textContent = current.to.split(',').join(', ');
             cc.textContent = current.cc || '';
             ccRow.hidden = !current.cc;
             subject.textContent = current.subject;
@@ -111,5 +127,5 @@ const Mail = (() => {
         return update;
     }
 
-    return { datePrepa, formatDate, mailto, bind };
+    return { datePrepa, formatDate, mailto, groupedList, bind };
 })();

@@ -43,9 +43,10 @@ function buildMajeurs() {
     } else if (missing.length === 1) {
         body += "\n et d'y joindre le document suivant : \n\n";
     }
-    missing.forEach(checkbox => {
-        body += `• ${DOCS_MAJEURS[checkbox.id]}\n`;
-    });
+    body += Mail.groupedList(missing.map(checkbox => ({
+        group: checkbox.closest('.doc-group').dataset.group,
+        text: DOCS_MAJEURS[checkbox.id]
+    })));
 
     body += "\n ⚠️ À noter : Tout dossier incomplet à J 2 entraînera le report de l’intervention.\n";
     body += "\nSi vous rencontrez la moindre difficulté, notre équipe d'accueil reste disponible pour vous accompagner, directement à la clinique ou par mail à l'adresse : admissionsambu@clinique-stjeandedieu.com .\n";

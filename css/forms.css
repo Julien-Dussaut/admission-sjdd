@@ -68,6 +68,7 @@
 }
 
 .seg label {
+    position: relative;
     padding: 0.5625rem 1.125rem;
     border-radius: 8px;
     font-size: 0.875rem;
@@ -134,6 +135,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.625rem;
+    align-items: start;
 }
 
 .doc-tile {
@@ -154,7 +156,7 @@
     border-color: #cfc5b7;
 }
 
-.doc-tile input {
+.doc-tile input[type="checkbox"] {
     appearance: none;
     flex: none;
     width: 22px;
@@ -166,7 +168,7 @@
     cursor: pointer;
 }
 
-.doc-tile input:checked {
+.doc-tile input[type="checkbox"]:checked {
     background-color: var(--accent);
     border-color: var(--accent);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f1b16' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 4 4L19 6'/%3E%3C/svg%3E");
@@ -175,12 +177,12 @@
     background-repeat: no-repeat;
 }
 
-.doc-tile input:focus-visible {
+.doc-tile input[type="checkbox"]:focus-visible {
     outline: 2px solid var(--ink);
     outline-offset: 2px;
 }
 
-.doc-tile:has(input:checked) {
+.doc-tile:has(input[type="checkbox"]:checked) {
     background-color: var(--tint);
     border-color: var(--accent);
     font-weight: 500;
@@ -347,5 +349,141 @@
     .form-row,
     .doc-grid {
         grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Documents regroupés par catégorie */
+.doc-group + .doc-group {
+    margin-top: 1.375rem;
+}
+
+/* Documents avec précision de signature (mineurs) */
+.doc-tile--sig {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.625rem;
+    padding: 0.75rem 0.875rem;
+    cursor: default;
+}
+
+.doc-tile-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 28px;
+    cursor: pointer;
+}
+
+.doc-tile-row input {
+    appearance: none;
+    flex: none;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    background-color: #fff;
+    border: 1.5px solid #a79d90;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.doc-tile-row input:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f1b16' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 4 4L19 6'/%3E%3C/svg%3E");
+    background-size: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.doc-tile-row input:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+}
+
+.sig {
+    display: none;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    padding-left: 2.125rem;
+}
+
+.doc-tile--sig:has(input[type="checkbox"]:checked) .sig {
+    display: flex;
+}
+
+.sig-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.seg--sm {
+    background-color: rgb(255 255 255 / 70%);
+    border-radius: 9px;
+}
+
+.seg--sm label {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+    border-radius: 7px;
+}
+
+/* Second parent */
+.form-row--top {
+    align-items: start;
+}
+
+.field-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.field-row input {
+    flex: 1;
+    min-width: 0;
+}
+
+.icon-btn {
+    display: flex;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid var(--field-border);
+    border-radius: 10px;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.icon-btn:hover {
+    background-color: #f6f4f1;
+}
+
+.icon-btn:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+}
+
+.icon-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.field--second {
+    grid-column: 2;
+}
+
+.field-hint {
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+@media (max-width: 700px) {
+    .field--second {
+        grid-column: auto;
     }
 }

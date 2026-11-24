@@ -106,6 +106,7 @@
                             <span class="chip chip--accent search-item">AT</span>
                             <span class="chip chip--accent search-item">INV</span>
                             <span class="chip chip--accent search-item">SPE</span>
+                            <span class="chip chip--accent search-item">SNCF</span>
                             <span class="chip chip--accent search-item">115</span>
                             <span class="chip chip--accent search-item">Tous les assurés Alsace-Moselle</span>
                         </div>
@@ -287,6 +288,11 @@
                 </form>
                 <aside class="card col-5" aria-label="Aperçu de l'email">
                     <div class="card-head"><h2>Email prêt à envoyer</h2><span class="live-badge">Aperçu en direct</span></div>
+                    <div class="actions">
+                        <a class="btn btn-primary" id="send-email-mineurs" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
+                        <button type="button" class="btn btn-secondary" id="copy-email-mineurs" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
+                    </div>
+                    <p class="hint" id="mineurs-mail-hint">Cochez au moins un document et saisissez les emails des parents.</p>
                     <div class="mail">
                         <dl class="mail-head">
                             <div><dt>À</dt><dd id="mineurs-mail-to"></dd></div>
@@ -295,11 +301,6 @@
                         </dl>
                         <div class="mail-body" id="mineurs-mail-body"></div>
                     </div>
-                    <div class="actions">
-                        <a class="btn btn-primary" id="send-email-mineurs" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
-                        <button type="button" class="btn btn-secondary" id="copy-email-mineurs" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
-                    </div>
-                    <p class="hint" id="mineurs-mail-hint">Cochez au moins un document et saisissez les emails des parents.</p>
                 </aside>
             </div>
         </section>
@@ -362,6 +363,11 @@
                 </form>
                 <aside class="card col-5" aria-label="Aperçu de l'email">
                     <div class="card-head"><h2>Email prêt à envoyer</h2><span class="live-badge">Aperçu en direct</span></div>
+                    <div class="actions">
+                        <a class="btn btn-primary" id="send-email-majeurs" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
+                        <button type="button" class="btn btn-secondary" id="copy-email-majeurs" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
+                    </div>
+                    <p class="hint" id="majeurs-mail-hint">Cochez au moins un document et saisissez l'email du patient.</p>
                     <div class="mail">
                         <dl class="mail-head">
                             <div><dt>À</dt><dd id="majeurs-mail-to"></dd></div>
@@ -370,11 +376,6 @@
                         </dl>
                         <div class="mail-body" id="majeurs-mail-body"></div>
                     </div>
-                    <div class="actions">
-                        <a class="btn btn-primary" id="send-email-majeurs" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
-                        <button type="button" class="btn btn-secondary" id="copy-email-majeurs" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
-                    </div>
-                    <p class="hint" id="majeurs-mail-hint">Cochez au moins un document et saisissez l'email du patient.</p>
                 </aside>
             </div>
         </section>
@@ -407,6 +408,11 @@
                 </form>
                                 <aside class="card col-6" aria-label="Aperçu de l'email">
                     <div class="card-head"><h2>Email prêt à envoyer</h2><span class="live-badge">Aperçu en direct</span></div>
+                    <div class="actions">
+                        <a class="btn btn-primary" id="send-email-nas" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
+                        <button type="button" class="btn btn-secondary" id="copy-email-nas" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
+                    </div>
+                    <p class="hint" id="nas-mail-hint">Renseignez le nom, la date de naissance et l'intervention.</p>
                     <div class="mail">
                         <dl class="mail-head">
                             <div><dt>À</dt><dd id="nas-mail-to"></dd></div>
@@ -415,11 +421,6 @@
                         </dl>
                         <div class="mail-body" id="nas-mail-body"></div>
                     </div>
-                    <div class="actions">
-                        <a class="btn btn-primary" id="send-email-nas" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
-                        <button type="button" class="btn btn-secondary" id="copy-email-nas" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
-                    </div>
-                    <p class="hint" id="nas-mail-hint">Renseignez le nom, la date de naissance et l'intervention.</p>
                 </aside>
             </div>
         </section>
@@ -464,6 +465,11 @@
                 </form>
                                 <aside class="card col-6" aria-label="Aperçu de l'email">
                     <div class="card-head"><h2>Email prêt à envoyer</h2><span class="live-badge">Aperçu en direct</span></div>
+                    <div class="actions">
+                        <a class="btn btn-primary" id="send-email-hn" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
+                        <button type="button" class="btn btn-secondary" id="copy-email-hn" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
+                    </div>
+                    <p class="hint" id="hn-mail-hint">Renseignez le nom, la date de naissance et le chirurgien.</p>
                     <div class="mail">
                         <dl class="mail-head">
                             <div><dt>À</dt><dd id="hn-mail-to"></dd></div>
@@ -472,11 +478,6 @@
                         </dl>
                         <div class="mail-body" id="hn-mail-body"></div>
                     </div>
-                    <div class="actions">
-                        <a class="btn btn-primary" id="send-email-hn" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
-                        <button type="button" class="btn btn-secondary" id="copy-email-hn" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
-                    </div>
-                    <p class="hint" id="hn-mail-hint">Renseignez le nom, la date de naissance et le chirurgien.</p>
                 </aside>
             </div>
         </section>

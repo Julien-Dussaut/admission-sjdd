@@ -168,20 +168,42 @@
                             <input type="search" id="proc-search" placeholder="Rechercher une procédure…" aria-label="Rechercher une procédure" autocomplete="off">
                         </div>
                     </div>
-                    <ul class="proc-list" id="proc-list">
-                        <li><button type="button" class="proc-item" data-proc="Préadmission patient majeur" aria-current="true">Préadmission patient majeur</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Préadmission patient mineur">Préadmission patient mineur</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Admission">Admission</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Prépa ambulatoire">Prépa ambulatoire</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Prépa hospitalisation">Prépa hospitalisation</button></li>
-                        <li><button type="button" class="proc-item" data-proc="CFE">CFE</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Patient Non Assuré Social">Patient Non Assuré Social</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Patient Hors Nomenclature">Patient Hors Nomenclature</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Demande de PEC (Prise En Charge)">Demande de PEC (Prise En Charge)</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Ajout de PEC (Prise En Charge)">Ajout de PEC (Prise En Charge)</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Consultation des droits">Consultation des droits</button></li>
-                        <li><button type="button" class="proc-item" data-proc="Recommandations globales">Recommandations globales</button></li>
-                    </ul>
+                    <div id="proc-list">
+                        <div class="proc-group">
+                            <h3 class="group-label">Parcours patient</h3>
+                            <ul class="proc-list">
+                                <li><button type="button" class="proc-item" data-proc="Préadmission patient majeur" aria-current="true">Préadmission patient majeur</button></li>
+                                <li><button type="button" class="proc-item" data-proc="Préadmission patient mineur">Préadmission patient mineur</button></li>
+                                <li><button type="button" class="proc-item" data-proc="Demande de PEC">Demande de PEC</button></li>
+                                <li><button type="button" class="proc-item" data-proc="Ajout de PEC">Ajout de PEC</button></li>
+                                <li><button type="button" class="proc-item" data-proc="Admission ambulatoire">Admission ambulatoire</button></li>
+                                <li><button type="button" class="proc-item" data-proc="Admission hospitalisation">Admission hospitalisation</button></li>
+                                <li><button type="button" class="proc-item" data-proc="Sortie hospitalisation">Sortie hospitalisation</button></li>
+                            </ul>
+                        </div>
+                        <div class="proc-group">
+                            <h3 class="group-label">Backoffice</h3>
+                            <ul class="proc-list">
+                                <li><button type="button" class="proc-item" data-proc="Prépa ambulatoire">Prépa ambulatoire</button></li>
+                                <li><button type="button" class="proc-item" data-proc="Prépa hospitalisation">Prépa hospitalisation</button></li>
+                            </ul>
+                        </div>
+                        <div class="proc-group">
+                            <h3 class="group-label">Cas particuliers</h3>
+                            <ul class="proc-list">
+                                <li><button type="button" class="proc-item" data-proc="Patient non assuré social">Patient non assuré social</button></li>
+                                <li><button type="button" class="proc-item" data-proc="Patient hors nomenclature">Patient hors nomenclature</button></li>
+                            </ul>
+                        </div>
+                        <div class="proc-group">
+                            <h3 class="group-label">Général</h3>
+                            <ul class="proc-list">
+                                <li><button type="button" class="proc-item" data-proc="Consultation des droits">Consultation des droits</button></li>
+                                <li><button type="button" class="proc-item" data-proc="CFE">CFE</button></li>
+                                <li><button type="button" class="proc-item" data-proc="Recommandations globales">Recommandations globales</button></li>
+                            </ul>
+                        </div>
+                    </div>
                     <p class="empty-state" id="proc-empty" hidden>Aucune procédure trouvée.</p>
                 </section>
                 <article class="card col-8 proc-pane" id="proc-pane" aria-live="polite">
@@ -284,7 +306,7 @@
                             <li><span class="app app--doc">Documents</span>Coller une étiquette sur la <strong>fiche suiveuse</strong> et mettre les autres dans le dossier avec les documents signés.</li>
                         </ol>
                     </div>
-                    <div class="proc-body" data-proc="Patient Hors Nomenclature">
+                    <div class="proc-body" data-proc="Patient hors nomenclature">
                         <ol class="steps">
                             <li><span class="app app--site">Site</span>Sur ce site, aller dans l'onglet <strong>Devis HN</strong>.</li>
                             <li><span class="app app--site">Site</span>Entrer le <strong>nom et prénom</strong> du patient et sa <strong>date de naissance</strong> dans les champs prévus.</li>
@@ -296,7 +318,7 @@
                             <li><span class="app app--doc">Documents</span>Sur la <strong>fiche suiveuse</strong>, sur la ligne prévue, ajouter la <strong>date d'envoi</strong> de l'email.</li>
                         </ol>
                     </div>
-                    <div class="proc-body" data-proc="Patient Non Assuré Social">
+                    <div class="proc-body" data-proc="Patient non assuré social">
                         <ol class="steps">
                             <li><span class="app app--site">Site</span>Sur ce site, aller dans l'onglet <strong>Devis NAS</strong>.</li>
                             <li><span class="app app--site">Site</span>Entrer le <strong>nom et prénom</strong> du patient et sa <strong>date de naissance</strong> dans les champs prévus.</li>

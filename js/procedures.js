@@ -38,12 +38,13 @@
     });
 
     show('Préadmission patient majeur');
-
-
     search.addEventListener('input', () => {
         const query = normalize(search.value.trim());
         buttons.forEach(button => {
             button.parentElement.hidden = Boolean(query) && !normalize(button.textContent).includes(query);
+        });
+        list.querySelectorAll('.proc-group').forEach(group => {
+            group.hidden = [...group.querySelectorAll('li')].every(item => item.hidden);
         });
         emptyMessage.hidden = buttons.some(button => !button.parentElement.hidden);
     });

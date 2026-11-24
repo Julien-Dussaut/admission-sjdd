@@ -7,389 +7,411 @@
     <link href="./css/reset.css" rel="stylesheet" />
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/header.css" rel="stylesheet" />
-    <link href="./css/home-main.css" rel="stylesheet" />
-    <link href="./css/mineur-main.css" rel="stylesheet" />
-    <link href="./css/majeur-main.css" rel="stylesheet" />
-    <link href="./css/nas-main.css" rel="stylesheet" />
-    <link href="./css/hn-main.css" rel="stylesheet" />
     <link href="./css/modal.css" rel="stylesheet" />
     <link href="./css/infos.css" rel="stylesheet" />
+    <link href="./css/forms.css" rel="stylesheet" />
 
     <title>Admissions - SJDD</title>
 </head>
 
 <body>
     <header>
-        <div id="title">
-            <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
-            <h1>Admissions Saint-Jean de Dieu</h1>
-            <div id="date-prepa">
-                <p>Journée en cours de préparation : <span id="date-prepa-value"></span></p>
-                <button id="open-modal" class="custom-button">Modifier</button>
-            </div>
-        </div>
+        <img src="./images/logo.svg" alt="Logo de la clinique Saint-Jean de Dieu">
         <nav>
             <a href="#informations" class="active">Informations</a>
+            <a href="#procedures">Procédures</a>
             <a href="#mineurs">Relance mineurs</a>
             <a href="#majeurs">Relance majeurs</a>
             <a href="#devis-nas">Devis NAS</a>
             <a href="#devis-hn">Devis HN</a>
         </nav>
-
+        <div id="date-prepa">
+            <p>Journée en préparation : <span id="date-prepa-value"></span></p>
+            <button id="open-modal" class="custom-button">Modifier</button>
+        </div>
     </header>
     <main>
         <section id="informations">
-            <h1>Informations utiles</h1>
-            <article id="telephone">
-                <h2>Numéros utiles</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Service / Nom</td>
-                            <td>Numéro</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ana</td>
-                            <td>5570</td>
-                        </tr>
-                        <tr>
-                            <td>Prépa</td>
-                            <td>2038 / 4692</td>
-                        </tr>
-                        <tr>
-                            <td>Accueil</td>
-                            <td>6009 / 9</td>
-                        </tr>
-                        <tr>
-                            <td>Fast track</td>
-                            <td>4633</td>
-                        </tr>
-                        <tr>
-                            <td>Infirmières 1er</td>
-                            <td>2100</td>
-                        </tr>
-                        <tr>
-                            <td>Infirmières 2ème</td>
-                            <td>2200</td>
-                        </tr>
-                        <tr>
-                            <td>Infirmières 3ème</td>
-                            <td>2300</td>
-                        </tr>
-                        <tr>
-                            <td>Myriam</td>
-                            <td>4677</td>
-                        </tr>
-                        <tr>
-                            <td>Facturation</td>
-                            <td>2440 / 2324 / 2490</td>
-                        </tr>
-                        <tr>
-                            <td>Bloc (responsable)</td>
-                            <td>6622 / 8004</td>
-                        </tr>
-                        <tr>
-                            <td>Secrétariat anesth</td>
-                            <td>2342</td>
-                        </tr>
-                        <tr>
-                            <td>Secrétariat consult</td>
-                            <td>2496</td>
-                        </tr>
-                        <tr>
-                            <td>Admission (porte 2 & 3)</td>
-                            <td>6690</td>
-                        </tr>
-                        <tr>
-                            <td>Admission (porte 4)</td>
-                            <td>8020</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-            <article id="chambres-exo">
-                <h2>Chambres seules</h2>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>1er</td>
-                            <td>
-                                105 - 
-                                118
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2ème</td>
-                            <td>
-                                201 - 203 - 205 - 207 - 209 - 211 - 214 - 215 - 216 - 217 - 221 - 223 - 224 - 225 (suite) - 226 - 227 - 228 - 229 - 230
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3ème</td>
-                            <td>301 - 302 - 303 - 304 - 307 - 310 - 311 - 312 - 313 - 316</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h2>Exonération PAT</h2>
-                <table>
-                    <tr>
-                        <td>ALD - AT - INV - SPE - 115 - Tout les assurés ALSACE/MOSELLE</td>
-                    </tr>
-                </table>
-            </article>
-            <article id="general">
-                <h2>Infos générales</h2>
-                <table>
-                    <tr>
-                        <td>FINESS</td>
-                        <td>750300121</td>
-                    </tr>
-                    <tr>
-                        <td>SIRET</td>
-                        <td>75 331 332 900 249</td>
-                    </tr>
-                    <tr>
-                        <td>DMT hospi</td>
-                        <td>03 137</td>
-                    </tr>
-                    <tr>
-                        <td>DMT ambu</td>
-                        <td>23 137</td>
-                    </tr>
-                    <tr>
-                        <td>DMT chimio</td>
-                        <td>19 302</td>
-                    </tr>
-                </table>
-            </article>
-            <article id="pmss">
-                <h2>PMSS</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <td colspan="4">PMSS 2025 - 4005 €</td>
-                        </tr>
-                        <tr>
-                            <td>%</td>
-                            <td>Part mutuelle</td>
-                            <td>Part patient (CP)</td>
-                            <td>Part patient (suite)</td>
-                        </tr>
-                    </thead>
-                </table>
-                <section id="pmss-calcul">
-                    <div id="pmss-calcul-inputs">
-                        <label for="pmss-pourcentage">Pourcentage du PMSS pris en charge par la mutuelle</label>
-                        <input type="number" id="pmss-pourcentage" min="0" step="0.1" inputmode="decimal" placeholder="Ex. 2,5">
+            <div class="page-head">
+                <div>
+                    <h1>Informations utiles</h1>
+                    <p class="page-sub">Numéros, chambres et identifiants de la clinique.</p>
+                </div>
+                <div class="search">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                    <input type="search" id="info-search" placeholder="Rechercher un service, un numéro, une chambre…" aria-label="Rechercher dans les informations utiles" autocomplete="off">
+                </div>
+            </div>
+            <p class="empty-state" id="info-empty" hidden>Aucun résultat pour cette recherche.</p>
+            <div class="cols">
+                <article id="telephone" class="card col-7 search-block">
+                    <div class="card-head"><h2>Numéros utiles</h2></div>
+                    <div class="groups">
+                    <div class="search-group">
+                        <h3 class="group-label">Accueil et admission</h3>
+                        <div class="tiles">
+                            <div class="tile search-item"><span>Accueil</span><strong>6009 / 9</strong></div>
+                            <div class="tile search-item"><span>Admission (porte 2 et 3)</span><strong>6690</strong></div>
+                            <div class="tile search-item"><span>Admission (porte 4)</span><strong>8020</strong></div>
+                            <div class="tile search-item"><span>Prépa</span><strong>2038 / 4692</strong></div>
+                            <div class="tile search-item"><span>Fast track</span><strong>4633</strong></div>
+                        </div>
                     </div>
-
-                    <dl>
-                        <dt>Part mutuelle</dt>
-                        <dd><output id="pmss-mutuelle">—</output></dd>
-
-                        <dt>Reste à charge en chambre confort (210 €)</dt>
-                        <dd><output id="pmss-confort">—</output></dd>
-
-                        <dt>Reste à charge en chambre suite (300 €)</dt>
-                        <dd><output id="pmss-suite">—</output></dd>
-                    </dl>
-                </section>
+                    <div class="search-group">
+                        <h3 class="group-label">Étages et bloc</h3>
+                        <div class="tiles">
+                            <div class="tile search-item"><span>Infirmières 1er</span><strong>2100</strong></div>
+                            <div class="tile search-item"><span>Infirmières 2ème</span><strong>2200</strong></div>
+                            <div class="tile search-item"><span>Infirmières 3ème</span><strong>2300</strong></div>
+                            <div class="tile search-item"><span>Bloc (responsable)</span><strong>6622 / 8004</strong></div>
+                        </div>
+                    </div>
+                    <div class="search-group">
+                        <h3 class="group-label">Secrétariats et facturation</h3>
+                        <div class="tiles">
+                            <div class="tile search-item"><span>Secrétariat anesth</span><strong>2342</strong></div>
+                            <div class="tile search-item"><span>Secrétariat consult</span><strong>2496</strong></div>
+                            <div class="tile search-item"><span>Facturation</span><strong>2440 / 2324 / 2490</strong></div>
+                        </div>
+                    </div>
+                    <div class="search-group">
+                        <h3 class="group-label">Autres</h3>
+                        <div class="tiles">
+                            <div class="tile search-item"><span>Ana</span><strong>5570</strong></div>
+                            <div class="tile search-item"><span>Myriam</span><strong>4677</strong></div>
+                        </div>
+                    </div>
+                    </div>
+                </article>
+                <div class="col-5 stack">
+                    <article id="chambres-seules" class="card search-block">
+                        <div class="card-head"><h2>Chambres seules</h2></div>
+                    <div class="floor search-group">
+                        <h3 class="group-label">1er</h3>
+                        <div class="chips"><span class="chip search-item">105</span><span class="chip search-item">118</span></div>
+                    </div>
+                    <div class="floor search-group">
+                        <h3 class="group-label">2ème</h3>
+                        <div class="chips"><span class="chip search-item">201</span><span class="chip search-item">203</span><span class="chip search-item">205</span><span class="chip search-item">207</span><span class="chip search-item">209</span><span class="chip search-item">211</span><span class="chip search-item">214</span><span class="chip search-item">215</span><span class="chip search-item">216</span><span class="chip search-item">217</span><span class="chip search-item">221</span><span class="chip search-item">223</span><span class="chip search-item">224</span><span class="chip search-item">225 (suite)</span><span class="chip search-item">226</span><span class="chip search-item">227</span><span class="chip search-item">228</span><span class="chip search-item">229</span><span class="chip search-item">230</span></div>
+                    </div>
+                    <div class="floor search-group">
+                        <h3 class="group-label">3ème</h3>
+                        <div class="chips"><span class="chip search-item">301</span><span class="chip search-item">302</span><span class="chip search-item">303</span><span class="chip search-item">304</span><span class="chip search-item">307</span><span class="chip search-item">310</span><span class="chip search-item">311</span><span class="chip search-item">312</span><span class="chip search-item">313</span><span class="chip search-item">316</span></div>
+                    </div>
+                    </article>
+                    <article id="exo-pat" class="card search-block">
+                        <div class="card-head"><h2>Exonération PAT</h2></div>
+                        <div class="chips">
+                            <span class="chip chip--accent search-item">ALD</span>
+                            <span class="chip chip--accent search-item">AT</span>
+                            <span class="chip chip--accent search-item">INV</span>
+                            <span class="chip chip--accent search-item">SPE</span>
+                            <span class="chip chip--accent search-item">115</span>
+                            <span class="chip chip--accent search-item">Tous les assurés Alsace-Moselle</span>
+                        </div>
+                    </article>
+                    <article id="general" class="card search-block">
+                        <div class="card-head"><h2>Infos générales</h2></div>
+                    <div class="kv search-item">
+                        <span>FINESS</span>
+                        <span class="kv-value">750300121<button type="button" class="copy-btn" data-copy="750300121" aria-label="Copier le FINESS"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></button></span>
+                    </div>
+                    <div class="kv search-item">
+                        <span>SIRET</span>
+                        <span class="kv-value">75 331 332 900 249<button type="button" class="copy-btn" data-copy="75 331 332 900 249" aria-label="Copier le SIRET"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></button></span>
+                    </div>
+                    <div class="kv search-item">
+                        <span>DMT hospi / ambu</span>
+                        <span class="kv-value">137<button type="button" class="copy-btn" data-copy="137" aria-label="Copier le DMT hospi / ambu"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></button></span>
+                    </div>
+                    </article>
+                </div>
+            </div>
+            <article id="pmss" class="card search-item">
+                <div class="card-head"><h2>PMSS 2025</h2><span>4 005 €</span></div>
+                <div class="pmss-layout">
+                    <section id="pmss-calcul">
+                        <div id="pmss-calcul-inputs">
+                            <label for="pmss-pourcentage">Pourcentage du PMSS pris en charge par la mutuelle</label>
+                            <input type="number" id="pmss-pourcentage" min="0" step="0.1" inputmode="decimal" placeholder="Ex. 2,5">
+                        </div>
+                        <dl>
+                            <div><dt>Part mutuelle</dt><dd><output id="pmss-mutuelle">—</output></dd></div>
+                            <div><dt>Reste à charge en chambre confort (210 €)</dt><dd><output id="pmss-confort">—</output></dd></div>
+                            <div><dt>Reste à charge en chambre suite (300 €)</dt><dd><output id="pmss-suite">—</output></dd></div>
+                        </dl>
+                    </section>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">% du PMSS</th>
+                                    <th scope="col">Part mutuelle</th>
+                                    <th scope="col">Part patient (CP)</th>
+                                    <th scope="col">Part patient (suite)</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
             </article>
+        </section>
+        <section id="procedures">
+            <div class="page-head">
+                <div>
+                    <h1>Procédures</h1>
+                    <p class="page-sub">Choisir une procédure dans la liste pour l'afficher.</p>
+                </div>
+            </div>
+            <div class="cols">
+                <section class="card col-4" aria-label="Liste des procédures">
+                    <div class="search-row">
+                        <div class="search">
+                            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                            <input type="search" id="proc-search" placeholder="Rechercher une procédure…" aria-label="Rechercher une procédure" autocomplete="off">
+                        </div>
+                    </div>
+                    <ul class="proc-list" id="proc-list">
+                        <li><button type="button" class="proc-item" data-proc="Préadmission" aria-current="true">Préadmission</button></li>
+                        <li><button type="button" class="proc-item" data-proc="Admission">Admission</button></li>
+                        <li><button type="button" class="proc-item" data-proc="Prépa ambulatoire">Prépa ambulatoire</button></li>
+                        <li><button type="button" class="proc-item" data-proc="Prépa hospitalisation">Prépa hospitalisation</button></li>
+                        <li><button type="button" class="proc-item" data-proc="CFE">CFE</button></li>
+                        <li><button type="button" class="proc-item" data-proc="Patient Non Assuré Social">Patient Non Assuré Social</button></li>
+                        <li><button type="button" class="proc-item" data-proc="Patient Hors Nomenclature">Patient Hors Nomenclature</button></li>
+                        <li><button type="button" class="proc-item" data-proc="Recommandations globales">Recommandations globales</button></li>
+                    </ul>
+                    <p class="empty-state" id="proc-empty" hidden>Aucune procédure trouvée.</p>
+                </section>
+                <article class="card col-8 proc-pane" id="proc-pane" aria-live="polite">
+                    <h2 id="proc-title">Préadmission</h2>
+                    <span class="soon">Bientôt</span>
+                    <p>Le contenu de cette procédure sera disponible prochainement.</p>
+                </article>
+            </div>
         </section>
         <section id="mineurs">
-            <h1>Relance patient mineur pour dossier incomplet</h1>
-
-            <form id="mineur-form">
-                <h2>Cocher les documents manquants au dossier</h2>
-
-                <div class="form-field form-field--select-all">
-                    <input type="checkbox" name="checkAll" id="checkAll">
-                    <label for="checkAll" id="labelCheckAll">Tout cocher</label>
+            <div class="page-head">
+                <div>
+                    <h1>Relance patient mineur</h1>
+                    <p class="page-sub">Dossier incomplet : cocher les documents manquants, l'email se compose tout seul.</p>
                 </div>
-                <div class="form-field">
-                    <input type="checkbox" name="cni-patient" id="cni-patient">
-                    <label for="cni-patient">Identité patient</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="cni-pere" id="cni-pere">
-                    <label for="cni-pere">Identité père</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="cni-mere" id="cni-mere">
-                    <label for="cni-mere">Identité mère</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="lf-naissance" id="lf-naissance">
-                    <label for="lf-naissance">Livret de famille / Acte de naissance</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="adm-mineur" id="adm-mineur">
-                    <label for="adm-mineur">Fiche admission patient mineur</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="ca" id="ca">
-                    <label for="ca">Consentement anesthésie</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="cc" id="cc">
-                    <label for="cc">Consentement chirurgie</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="pap" id="pap">
-                    <label for="pap">Personne à prévenir - de confiance</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="vitale" id="vitale">
-                    <label for="vitale">Carte vitale</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="tt-donnees" id="tt-donnees">
-                    <label for="tt-donnees">E-SATIS</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="mutuelle" id="mutuelle">
-                    <label for="mutuelle">Carte mutuelle</label>
-                </div>
-
-                <div class="form-fields-row form-fields-row--contact">
-                    <div class="form-field">
-                        <label for="files-number-mineurs">Numéro de dossier</label>
-                        <input type="text" name="files-number" id="files-number-mineurs" placeholder="Numéro de dossier">
+            </div>
+            <div class="cols">
+                <form id="mineur-form" class="card col-6">
+                    <div class="doc-head">
+                        <h2>Documents manquants</h2>
+                        <div class="doc-head-tools">
+                            <span class="doc-count" id="mineurs-count">0 sélectionné</span>
+                            <label class="check-all"><input type="checkbox" name="checkAll" id="checkAll"><span id="labelCheckAll">Tout cocher</span></label>
+                        </div>
                     </div>
-                    <div class="form-field">
-                        <label for="mail">Email parent :</label>
-                        <input type="email" name="mail" id="mail" required>
+                    <div class="doc-grid">
+                        <label class="doc-tile"><input type="checkbox" name="cni-patient" id="cni-patient"><span>Identité patient</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="cni-pere" id="cni-pere"><span>Identité père</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="cni-mere" id="cni-mere"><span>Identité mère</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="lf-naissance" id="lf-naissance"><span>Livret de famille / Acte de naissance</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="adm-mineur" id="adm-mineur"><span>Fiche admission patient mineur</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="ca" id="ca"><span>Consentement anesthésie</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="cc" id="cc"><span>Consentement chirurgie</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="pap" id="pap"><span>Personne à prévenir - de confiance</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="vitale" id="vitale"><span>Carte vitale</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="tt-donnees" id="tt-donnees"><span>E-SATIS</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="mutuelle" id="mutuelle"><span>Carte mutuelle</span></label>
                     </div>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="custom-button" id="generate-email-mineurs" disabled>Générer
-                        l'email</button>
-                    <a type="submit" class="custom-button" id="send-email-mineurs">Envoyer l'email</a>
-                </div>
-            </form>
+                    <div class="form-row" style="margin-top: 1.25rem">
+                        <div class="field">
+                            <label for="files-number-mineurs">Numéro de dossier</label>
+                            <input type="text" name="files-number" id="files-number-mineurs" placeholder="Numéro de dossier" autocomplete="off">
+                        </div>
+                        <div class="field">
+                            <label for="mail">Email parent</label>
+                            <input type="email" name="mail" id="mail" placeholder="parent@exemple.fr" required autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+                <aside class="card col-5" aria-label="Aperçu de l'email">
+                    <div class="card-head"><h2>Email prêt à envoyer</h2><span class="live-badge">Aperçu en direct</span></div>
+                    <div class="mail">
+                        <dl class="mail-head">
+                            <div><dt>À</dt><dd id="mineurs-mail-to"></dd></div>
+                            <div id="mineurs-mail-cc-row"><dt>Cc</dt><dd id="mineurs-mail-cc"></dd></div>
+                            <div><dt>Objet</dt><dd id="mineurs-mail-subject"></dd></div>
+                        </dl>
+                        <div class="mail-body" id="mineurs-mail-body"></div>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-primary" id="send-email-mineurs" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
+                        <button type="button" class="btn btn-secondary" id="copy-email-mineurs" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
+                    </div>
+                    <p class="hint" id="mineurs-mail-hint">Cochez au moins un document et saisissez l'email du parent.</p>
+                </aside>
+            </div>
         </section>
         <section id="majeurs">
-            <h1>Relance patient majeur pour dossier incomplet</h1>
-
-            <form id="majeur-form">
-
-                <h2>Cocher les documents manquants au dossier</h2>
-
-                <div class="form-fields-row form-fields-row--identity">
-                    <div class="form-field form-field--checkbox">
-                        <input type="checkbox" name="madame" id="madame">
-                        <label for="madame">Madame</label>
+            <div class="page-head">
+                <div>
+                    <h1>Relance patient majeur</h1>
+                    <p class="page-sub">Dossier incomplet : cocher les documents manquants, l'email se compose tout seul.</p>
+                </div>
+            </div>
+            <div class="cols">
+                <form id="majeur-form" class="card col-6">
+                    <div class="form-row" style="margin-bottom: 1.375rem">
+                        <div class="field">
+                            <span class="field-label" id="civilite-label">Civilité</span>
+                            <div class="seg" role="group" aria-labelledby="civilite-label">
+                                <label><input type="checkbox" name="madame" id="madame">Madame</label>
+                                <label><input type="checkbox" name="monsieur" id="monsieur">Monsieur</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="files-number-majeurs">Numéro de dossier</label>
+                            <input type="text" name="files-number" id="files-number-majeurs" placeholder="Numéro de dossier" autocomplete="off">
+                        </div>
                     </div>
-                    <div class="form-field form-field--checkbox">
-                        <input type="checkbox" name="monsieur" id="monsieur">
-                        <label for="monsieur">Monsieur</label>
+                    <div class="doc-head">
+                        <h2>Documents manquants</h2>
+                        <div class="doc-head-tools">
+                            <span class="doc-count" id="majeurs-count">0 sélectionné</span>
+                            <label class="check-all"><input type="checkbox" name="checkAllMajeurs" id="checkAllMajeurs"><span id="labelCheckAllMajeurs">Tout cocher</span></label>
+                        </div>
                     </div>
-                    <div class="form-field form-field--inline">
-                        <label for="files-number-majeurs">Numéro de dossier</label>
-                        <input type="text" name="files-number" id="files-number-majeurs" placeholder="Numéro de dossier">
+                    <div class="doc-grid">
+                        <label class="doc-tile"><input type="checkbox" name="cni-patient-majeur" id="cni-patient-majeur"><span>Identité patient</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="ca-majeur" id="ca-majeur"><span>Consentement anesthésie</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="cc-majeur" id="cc-majeur"><span>Consentement chirurgie</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="da-majeur" id="da-majeur"><span>Directives anticipées</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="pap-majeur" id="pap-majeur"><span>Personne à prévenir - de confiance</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="vitale-majeur" id="vitale-majeur"><span>Carte vitale</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="tt-donnees-majeur" id="tt-donnees-majeur"><span>E-SATIS</span></label>
+                        <label class="doc-tile"><input type="checkbox" name="mutuelle-majeur" id="mutuelle-majeur"><span>Carte mutuelle</span></label>
                     </div>
-                </div>
-                <div class="form-field form-field--select-all">
-                    <input type="checkbox" name="checkAllMajeurs" id="checkAllMajeurs">
-                    <label for="checkAllMajeurs" id="labelCheckAllMajeurs">Tous cocher</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="cni-patient-majeur" id="cni-patient-majeur">
-                    <label for="cni-patient-majeur">Identité patient</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="ca-majeur" id="ca-majeur">
-                    <label for="ca-majeur">Consentement anesthésie</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="cc-majeur" id="cc-majeur">
-                    <label for="cc-majeur">Consentement chirurgie</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="da-majeur" id="da-majeur">
-                    <label for="da-majeur">Directives anticipées</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="pap-majeur" id="pap-majeur">
-                    <label for="pap-majeur">Personne à prévenir - de confiance</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="vitale" id="vitale">
-                    <label for="vitale">Carte vitale</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="tt-donnees-majeur" id="tt-donnees-majeur">
-                    <label for="tt-donnees-majeur">E-SATIS</label>
-                </div>
-                <div class="form-field">
-                    <input type="checkbox" name="mutuelle" id="mutuelle-majeur">
-                    <label for="mutuelle-majeur">Carte mutuelle</label>
-                </div>
-
-                <div class="form-fields-row form-fields-row--contact">
-                    <div class="form-field form-field--inline">
-                        <label for="mailMajeurs">Email patient :</label>
-                        <input type="email" name="mailMajeurs" id="mailMajeurs" required>
+                    <div class="field" style="margin-top: 1.25rem">
+                        <label for="mailMajeurs">Email patient</label>
+                        <input type="email" name="mailMajeurs" id="mailMajeurs" placeholder="patient@exemple.fr" required autocomplete="off">
                     </div>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="custom-button" id="generate-email-majeurs" disabled>Générer
-                        l'email</button>
-                    <a type="submit" class="custom-button" id="send-email-majeurs">Envoyer l'email</a>
-                </div>
-            </form>
+                </form>
+                <aside class="card col-5" aria-label="Aperçu de l'email">
+                    <div class="card-head"><h2>Email prêt à envoyer</h2><span class="live-badge">Aperçu en direct</span></div>
+                    <div class="mail">
+                        <dl class="mail-head">
+                            <div><dt>À</dt><dd id="majeurs-mail-to"></dd></div>
+                            <div id="majeurs-mail-cc-row"><dt>Cc</dt><dd id="majeurs-mail-cc"></dd></div>
+                            <div><dt>Objet</dt><dd id="majeurs-mail-subject"></dd></div>
+                        </dl>
+                        <div class="mail-body" id="majeurs-mail-body"></div>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-primary" id="send-email-majeurs" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
+                        <button type="button" class="btn btn-secondary" id="copy-email-majeurs" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
+                    </div>
+                    <p class="hint" id="majeurs-mail-hint">Cochez au moins un document et saisissez l'email du patient.</p>
+                </aside>
+            </div>
         </section>
         <section id="devis-nas">
-            <h1>Demande de devis pour patient Non Assuré Social</h1>
-
-            <form id="devis-nas-form">
-                <h2>Informations sur le patient</h2>
-                <label for="patient-name-nas">Nom et prénom du patient :</label>
-                <input type="text" id="patient-name-nas" name="patient-name-nas" required>
-
-                <label for="patient-dob-nas">Date de naissance du patient :</label>
-                <input type="date" id="patient-dob-nas" name="patient-dob-nas" required>
-
-                <label for="intervention-description-nas">Description de l'intervention :</label>
-                <textarea id="intervention-description-nas" name="intervention-description-nas" rows="4"
-                    required></textarea>
-
-                <button type="submit" class="custom-button" id="generate-email-nas" disabled>Générer le mail</button>
-                <a type="submit" class="custom-button" id="send-email-nas">Envoyer l'email</a>
-            </form>
+            <div class="page-head">
+                <div>
+                    <h1>Devis patient Non Assuré Social</h1>
+                    <p class="page-sub">Renseigner le patient et l'intervention, l'email au service facturation est prêt.</p>
+                </div>
+            </div>
+            <div class="cols">
+                <form id="devis-nas-form" class="card col-5">
+                    <div class="card-head"><h2>Informations sur le patient</h2></div>
+                    <div class="form-stack">
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="patient-name-nas">Nom et prénom du patient</label>
+                                <input type="text" id="patient-name-nas" name="patient-name-nas" required autocomplete="off">
+                            </div>
+                            <div class="field">
+                                <label for="patient-dob-nas">Date de naissance</label>
+                                <input type="date" id="patient-dob-nas" name="patient-dob-nas" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="intervention-description-nas">Description de l'intervention</label>
+                            <textarea id="intervention-description-nas" name="intervention-description-nas" rows="4" required></textarea>
+                        </div>
+                    </div>
+                </form>
+                                <aside class="card col-6" aria-label="Aperçu de l'email">
+                    <div class="card-head"><h2>Email prêt à envoyer</h2><span class="live-badge">Aperçu en direct</span></div>
+                    <div class="mail">
+                        <dl class="mail-head">
+                            <div><dt>À</dt><dd id="nas-mail-to"></dd></div>
+                            <div id="nas-mail-cc-row"><dt>Cc</dt><dd id="nas-mail-cc"></dd></div>
+                            <div><dt>Objet</dt><dd id="nas-mail-subject"></dd></div>
+                        </dl>
+                        <div class="mail-body" id="nas-mail-body"></div>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-primary" id="send-email-nas" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
+                        <button type="button" class="btn btn-secondary" id="copy-email-nas" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
+                    </div>
+                    <p class="hint" id="nas-mail-hint">Renseignez le nom, la date de naissance et l'intervention.</p>
+                </aside>
+            </div>
         </section>
         <section id="devis-hn">
-            <h1>Demande de devis pour patient Hors Nomenclature</h1>
-            <form id="devis-hn-form">
-                <h2>Informations sur le patient</h2>
-                <label for="patient-name-hn">Nom et prénom du patient :</label>
-                <input type="text" id="patient-name-hn" name="patient-name-hn" required>
-
-                <label for="patient-dob-hn">Date de naissance du patient :</label>
-                <input type="date" id="patient-dob-hn" name="patient-dob-hn" required>
-
-                <label for="surgeon-hn">Nom du chirurgien :</label>
-                <select name="surgeon-hn" id="surgeon-hn" required>
-                    <option value="">Sélectionner un chirurgien</option>
-                    <option value="racy">Dr. Racy</option>
-                    <option value="davido">Dr. Davido</option>
-                    <option value="de-verbizier">Dr. De Verbizier</option>
-                    <option value="boutin">Dr. Boutin</option>
-                    <option value="samama">Dr. Samama</option>
-                    <option value="fitoussi">Dr. Fitoussi</option>
-                    <option value="barry-de-longchamps">Dr. Barry de Longchamps</option>
-                    <option value="lemazurier">Dr. Lemazurier</option>
-                    <option value="guilhard">Dr. Guilhard</option>
-                    <option value="sarfati">Dr. Sarfati</option>
-                </select>
-
-                <button type="submit" class="custom-button" id="generate-email-hn" disabled>Générer le mail</button>
-                <a type="submit" class="custom-button" id="send-email-hn">Envoyer l'email</a>
-            </form>
+            <div class="page-head">
+                <div>
+                    <h1>Devis patient Hors Nomenclature</h1>
+                    <p class="page-sub">Choisir le chirurgien : le destinataire se remplit tout seul.</p>
+                </div>
+            </div>
+            <div class="cols">
+                <form id="devis-hn-form" class="card col-5">
+                    <div class="card-head"><h2>Informations sur le patient</h2></div>
+                    <div class="form-stack">
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="patient-name-hn">Nom et prénom du patient</label>
+                                <input type="text" id="patient-name-hn" name="patient-name-hn" required autocomplete="off">
+                            </div>
+                            <div class="field">
+                                <label for="patient-dob-hn">Date de naissance</label>
+                                <input type="date" id="patient-dob-hn" name="patient-dob-hn" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="surgeon-hn">Chirurgien</label>
+                            <select name="surgeon-hn" id="surgeon-hn" required>
+                                <option value="">Sélectionner un chirurgien</option>
+                                    <option value="racy">Dr. Racy</option>
+                                    <option value="davido">Dr. Davido</option>
+                                    <option value="de-verbizier">Dr. De Verbizier</option>
+                                    <option value="boutin">Dr. Boutin</option>
+                                    <option value="samama">Dr. Samama</option>
+                                    <option value="fitoussi">Dr. Fitoussi</option>
+                                    <option value="barry-de-longchamps">Dr. Barry de Longchamps</option>
+                                    <option value="lemazurier">Dr. Lemazurier</option>
+                                    <option value="guilhard">Dr. Guilhard</option>
+                                    <option value="sarfati">Dr. Sarfati</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                                <aside class="card col-6" aria-label="Aperçu de l'email">
+                    <div class="card-head"><h2>Email prêt à envoyer</h2><span class="live-badge">Aperçu en direct</span></div>
+                    <div class="mail">
+                        <dl class="mail-head">
+                            <div><dt>À</dt><dd id="hn-mail-to"></dd></div>
+                            <div id="hn-mail-cc-row"><dt>Cc</dt><dd id="hn-mail-cc"></dd></div>
+                            <div><dt>Objet</dt><dd id="hn-mail-subject"></dd></div>
+                        </dl>
+                        <div class="mail-body" id="hn-mail-body"></div>
+                    </div>
+                    <div class="actions">
+                        <a class="btn btn-primary" id="send-email-hn" role="link" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Envoyer l'email</a>
+                        <button type="button" class="btn btn-secondary" id="copy-email-hn" aria-disabled="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span>Copier le texte</span></button>
+                    </div>
+                    <p class="hint" id="hn-mail-hint">Renseignez le nom, la date de naissance et le chirurgien.</p>
+                </aside>
+            </div>
         </section>
     </main>
     <div id="modal">
@@ -408,11 +430,15 @@
     <script src="./js/header-date.js"></script>
     <script src="./js/modal-date.js"></script>
     <script src="./js/navigation.js"></script>
+    <script src="./js/email.js"></script>
     <script src="./js/mineurs.js"></script>
     <script src="./js/majeurs.js"></script>
     <script src="./js/devis-nas.js"></script>
     <script src="./js/devis-hn.js"></script>
     <script src="./js/pmss.js"></script>
+    <script src="./js/copy.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/procedures.js"></script>
 
 </body>
 

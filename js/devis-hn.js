@@ -1,16 +1,3 @@
-function validerFormulaire() {
-    const patientNameHn = document.querySelector("#patient-name-hn").value.trim();
-    const patientDobHn = document.querySelector("#patient-dob-hn").value.trim();
-    const interventionHn = document.querySelector("#surgeon-hn").value.trim();
-
-    if (!patientNameHn || !patientDobHn || !interventionHn) {
-        document.querySelector("#generate-email-hn").disabled = true;
-    } else {
-        document.querySelector("#generate-email-hn").disabled = false;
-    }
-}
-
-
 function findMailSurgeon(surgeon) {
     const surgeonEmailMap = {
         "racy": {
@@ -55,42 +42,31 @@ function findMailSurgeon(surgeon) {
 }
 
 const formulaireHn = document.querySelector('#devis-hn-form');
+const patientNameFieldHn = document.querySelector('#patient-name-hn');
+const patientDobFieldHn = document.querySelector('#patient-dob-hn');
+const surgeonFieldHn = document.querySelector('#surgeon-hn');
 
-formulaireHn.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const patientNameHn = document.querySelector("#patient-name-hn").value.trim();
-    const patientDobHn = document.querySelector("#patient-dob-hn").value.trim();
-    const surgeon = document.querySelector("#surgeon-hn").value.trim();
-    const surgeonEmailHn = findMailSurgeon(surgeon);
-    
-    const subjectHn = encodeURIComponent("Demande de devis pour une intervention non couverte par l'assurance maladie");
-    let bodyHn = encodeURIComponent("Bonjour docteur,\n\nUne intervention non couverte par l'assurance maladie est programmée pour la/le patient(e) suivant(e) :\n " + patientNameHn + ", né(e) le " + new Date(patientDobHn).toLocaleDateString() + ".\n\nÀ ce jour, le devis n'a pas été ajouté sur Expert Santé.\n\nPourriez-vous, s'il vous plaît, ajouter votre devis sur Expert Santé afin que nous puissions facturer votre patient(e) lors de sa venue ?\n\nMerci d'avance pour votre retour.\n\nCordialement.\n\n");
+function buildHn() {
+    const patientName = patientNameFieldHn.value.trim() || '[nom du patient]';
+    const surgeonEmail = findMailSurgeon(surgeonFieldHn.value.trim());
 
-    let sendEmailHn = document.querySelector('#send-email-hn');
-    const mainRecipientHn = surgeonEmailHn.md
-    const ccRecipientHn = surgeonEmailHn.sec || "";
-    const mailtoLinkHn = `mailto:${mainRecipientHn}?${ccRecipientHn ? `cc=${ccRecipientHn}&` : ""}subject=${subjectHn}&body=${bodyHn}`;
+    return {
+        to: surgeonEmail ? surgeonEmail.md : '[choisir un chirurgien]',
+        cc: surgeonEmail ? (surgeonEmail.sec || '') : '',
+        subject: "Demande de devis pour une intervention non couverte par l'assurance maladie",
+        body: "Bonjour docteur,\n\nUne intervention non couverte par l'assurance maladie est programmée pour la/le patient(e) suivant(e) :\n "
+            + patientName + ", né(e) le " + Mail.formatDate(patientDobFieldHn.value.trim())
+            + ".\n\nÀ ce jour, le devis n'a pas été ajouté sur Expert Santé.\n\nPourriez-vous, s'il vous plaît, ajouter votre devis sur Expert Santé afin que nous puissions facturer votre patient(e) lors de sa venue ?\n\nMerci d'avance pour votre retour.\n\nCordialement.\n\n"
+    };
+}
 
-    sendEmailHn.href = mailtoLinkHn;
-    sendEmailHn.style.display = "block";
+function hnValide() {
+    return Boolean(patientNameFieldHn.value.trim() && patientDobFieldHn.value.trim() && findMailSurgeon(surgeonFieldHn.value.trim()));
+}
+
+Mail.bind({
+    prefix: 'hn',
+    form: formulaireHn,
+    build: buildHn,
+    isValid: hnValide
 });
-
-const patientNameFieldHn = document.querySelector("#patient-name-hn");
-const patientDobFieldHn = document.querySelector("#patient-dob-hn");
-const surgeonFieldHn = document.querySelector("#surgeon-hn");
-
-patientNameFieldHn.addEventListener('input', validerFormulaire);
-patientDobFieldHn.addEventListener('input', validerFormulaire);
-surgeonFieldHn.addEventListener('change', validerFormulaire);
-
-const generateEmailHn = document.querySelector('#generate-email-hn');
-const sendEmailHn = document.querySelector('#send-email-hn');
-
-sendEmailHn.addEventListener('click', () => {
-    setTimeout(() => {
-        formulaireHn.reset();
-        sendEmailHn.style.display = "none";
-        generateEmailHn.disabled = true;
-    }, 5000)
-
-})

@@ -46,7 +46,7 @@ navLinks.forEach(link => {
             return;
         }
 
-        sectionToActivate.style.display = sectionToActivate.id === 'informations' ? 'grid' : 'block';
+        sectionToActivate.style.display = 'flex';
         activeSection = sectionToActivate;
         fadeSection(sectionToActivate, [{ opacity: 0 }, { opacity: 1 }]);
     });

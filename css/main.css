@@ -1,3 +1,25 @@
+:root {
+    --bg: #f6f4f1;
+    --ink: #1f1b16;
+    --muted: #5c554d;
+    --line: #e7e1d9;
+    --accent: #f0801c;
+    --accent-text: #a8480a;
+    --tint: #fdebd9;
+    --field-border: #bfb6a9;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--ink);
+    line-height: 1.4;
+}
+
+/* Boutons historiques (modale de date, bouton Modifier) */
 .custom-button {
     width: 75%;
     margin: 1rem auto;
@@ -18,21 +40,198 @@
     transform: translateY(-2px);
 }
 
+/* Structure des pages */
 main {
-    width: 75dvw;
-    /* padding: 0 2rem; */
-    margin: 0 auto 2rem;
-}
-
-h1 {
+    box-sizing: border-box;
     width: 100%;
-    text-align: center;
+    max-width: 1280px;
     margin: 0 auto;
-    font-size: 2rem;
-    font-weight: bold;
-    padding-top: 2rem;
+    padding: 1.75rem 2rem 3rem;
 }
 
-#mineurs, #majeurs, #devis-nas, #devis-hn {
+@media (max-width: 700px) {
+    main {
+        padding: 1.25rem 1rem 2rem;
+    }
+}
+
+main > section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+#procedures, #mineurs, #majeurs, #devis-nas, #devis-hn {
     display: none;
+}
+
+.page-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+main h1 {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 1.625rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.page-sub {
+    margin: 0.25rem 0 0;
+    font-size: 0.875rem;
+    color: var(--muted);
+}
+
+.cols {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.col-4 { flex: 4 1 340px; min-width: 0; }
+.col-5 { flex: 5 1 440px; min-width: 0; }
+.col-6 { flex: 6 1 520px; min-width: 0; }
+.col-7 { flex: 7 1 560px; min-width: 0; }
+.col-8 { flex: 8 1 520px; min-width: 0; }
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Cartes */
+.card {
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.25rem;
+}
+
+.card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.875rem;
+}
+
+.card h2 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card-head span {
+    font-size: 0.8125rem;
+    color: var(--muted);
+}
+
+/* Recherche */
+.search {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    box-sizing: border-box;
+    flex: 1 1 360px;
+    max-width: 520px;
+    height: 48px;
+    padding: 0 0.875rem;
+    background-color: #fff;
+    border: 1px solid #d2c9bc;
+    border-radius: 12px;
+    color: var(--muted);
+}
+
+.search:focus-within {
+    border-color: var(--accent);
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.search svg {
+    flex: none;
+    width: 18px;
+    height: 18px;
+}
+
+.search input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 0.9375rem;
+    color: var(--ink);
+}
+
+.empty-state {
+    margin: 0;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Boutons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-sizing: border-box;
+    height: 46px;
+    padding: 0 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--ink);
+}
+
+.btn-primary:hover {
+    background-color: #e0720f;
+}
+
+.btn-secondary {
+    background-color: #fff;
+    border-color: var(--field-border);
+    color: var(--ink);
+    font-weight: 500;
+}
+
+.btn-secondary:hover {
+    background-color: #f6f4f1;
+}
+
+.btn[aria-disabled="true"] {
+    background-color: #e9e4dc;
+    border-color: transparent;
+    color: #6f665c;
+    cursor: not-allowed;
 }

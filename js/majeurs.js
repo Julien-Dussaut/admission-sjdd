@@ -1,112 +1,93 @@
-function checkAll() {
-    const label = document.getElementById('labelCheckAllMajeurs');
-    if (checkboxAll.checked) {
-        label.textContent = "Tout décocher";
-    } else {
-        label.textContent = "Tout cocher";
-    }
-    const checkboxes = document.querySelectorAll('#majeur-form input[type="checkbox"]:not(#checkAllMajeurs):not(#madame):not(#monsieur)');
-    checkboxes.forEach(checkbox => {
-        checkbox.checked = this.checked;
-    });
-}
+const DOCS_MAJEURS = {
+    'cni-patient-majeur': "Passeport ou carte d'identité",
+    'ca-majeur': "Consentement à l'anesthésie",
+    'cc-majeur': "Consentement à la chirurgie",
+    'da-majeur': "Directives anticipées",
+    'pap-majeur': "Personne à prévenir et de confiance",
+    'vitale-majeur': "Carte vitale ou attestation de droit",
+    'tt-donnees-majeur': "Accord pour le traitement des données personnelles",
+    'mutuelle-majeur': "Carte de mutuelle"
+};
 
-function validerFormulaire() {
-    const emailField = document.querySelector("#mailMajeurs");
-    const checkboxesFields = document.querySelectorAll('#majeur-form input[type=checkbox]:checked:not(#checkAllMajeurs):not(#madame):not(#monsieur)');
-
-    if (emailField.value.trim() !== '' && checkboxesFields.length > 0) {
-        document.querySelector('#generate-email-majeurs').disabled = false;
-    } else {
-        document.querySelector('#generate-email-majeurs').disabled = true;
-    }
-}
-
-const checkboxAllMajeurs = document.getElementById('checkAllMajeurs');
 const formulaireMajeurs = document.querySelector('#majeur-form');
-const emailFieldMajeurs = document.querySelector("#mailMajeurs");
-const generateEmailMajeurs = document.querySelector("#generate-email-majeurs");
-const sendEmailMajeurs = document.querySelector('#send-email-majeurs');
-const datePrepaFrMajeurs = new Date(localStorage.getItem('datePreparation')).toLocaleDateString('fr-FR', {
-    weekday: 'long',
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric'
-});
+const checkboxAllMajeurs = document.getElementById('checkAllMajeurs');
+const emailFieldMajeurs = document.querySelector('#mailMajeurs');
+const filesNumberFieldMajeurs = document.querySelector('#files-number-majeurs');
+const countLabelMajeurs = document.getElementById('majeurs-count');
 
-checkboxAllMajeurs.addEventListener('change', checkAll);
-emailFieldMajeurs.addEventListener('input', validerFormulaire);
-formulaireMajeurs.addEventListener('change', validerFormulaire);
+function documentCheckboxesMajeurs() {
+    return [...formulaireMajeurs.querySelectorAll('.doc-grid input[type="checkbox"]')];
+}
 
+function missingDocumentsMajeurs() {
+    return documentCheckboxesMajeurs().filter(checkbox => checkbox.checked);
+}
 
-const subjectMajeurs = encodeURIComponent("Urgent – Poursuite de votre préadmission en ligne avant votre intervention");
-
-formulaireMajeurs.addEventListener('submit', function (e) {
-    e.preventDefault();
-
+function buildMajeurs() {
     const madameChecked = formulaireMajeurs.querySelector('#madame').checked;
     const monsieurChecked = formulaireMajeurs.querySelector('#monsieur').checked;
     const salutation = madameChecked !== monsieurChecked
         ? (madameChecked ? 'Madame' : 'Monsieur')
         : 'Madame, Monsieur';
-    const filesNumber = formulaireMajeurs.querySelector('[name="files-number"]').value.trim();
-    const subjectWithReference = subjectMajeurs + encodeURIComponent(` - Références à rappeler ${filesNumber}`);
-    let bodyMajeurs = encodeURIComponent(salutation + ",\n\nVotre intervention est programmée le " + datePrepaFrMajeurs + " et nous sommes heureux de vous accueillir prochainement au sein de notre établissement.\n");
-    bodyMajeurs += encodeURIComponent("Afin de valider votre prise en charge, nous vous remercions de bien vouloir compléter dès que possible la préadmission en ligne ");
+    const filesNumber = filesNumberFieldMajeurs.value.trim();
+    const subject = "Urgent – Poursuite de votre préadmission en ligne avant votre intervention"
+        + ` - Références à rappeler ${filesNumber}`;
 
-    const missingDocuments = formulaireMajeurs.querySelectorAll('input[type=checkbox]:checked:not(#checkAllMajeurs):not(#madame):not(#monsieur)');
-    if (missingDocuments.length > 1) {
-        bodyMajeurs += encodeURIComponent("\n et d'y joindre les documents suivants : \n\n");
-    } else if (missingDocuments == 1) {
-        bodyMajeurs += encodeURIComponent("\n et d'y joindre le document suivant : \n\n");
+    let body = salutation + ",\n\nVotre intervention est programmée le " + Mail.datePrepa()
+        + " et nous sommes heureux de vous accueillir prochainement au sein de notre établissement.\n";
+    body += "Afin de valider votre prise en charge, nous vous remercions de bien vouloir compléter dès que possible la préadmission en ligne ";
+
+    const missing = missingDocumentsMajeurs();
+    if (missing.length > 1) {
+        body += "\n et d'y joindre les documents suivants : \n\n";
+    } else if (missing.length === 1) {
+        body += "\n et d'y joindre le document suivant : \n\n";
     }
-    missingDocuments.forEach(element => {
-        if (element.checked) {
-            switch (element.id) {
-                case 'cni-patient-majeur':
-                    bodyMajeurs += encodeURIComponent("• Passeport ou carte d'identité\n");
-                    break;
-                case 'ca-majeur':
-                    bodyMajeurs += encodeURIComponent("• Consentement à l'anesthésie\n");
-                    break;
-                case 'cc-majeur':
-                    bodyMajeurs += encodeURIComponent("• Consentement à la chirurgie\n");
-                    break;
-                case 'da-majeur':
-                    bodyMajeurs += encodeURIComponent("• Directives anticipées\n");
-                    break;
-                case 'pap-majeur':
-                    bodyMajeurs += encodeURIComponent("• Personne à prévenir et de confiance\n");
-                    break;
-                case 'vitale':
-                    bodyMajeurs += encodeURIComponent("• Carte vitale ou attestation de droit\n");
-                    break;
-                case 'tt-donnees-majeur':
-                    bodyMajeurs += encodeURIComponent("• Accord pour le traitement des données personnelles\n");
-                    break;
-                case 'mutuelle-majeur':
-                    bodyMajeurs += encodeURIComponent("• Carte de mutuelle\n");
-                    break;
-            }
-        }
-    })
+    missing.forEach(checkbox => {
+        body += `• ${DOCS_MAJEURS[checkbox.id]}\n`;
+    });
 
-    bodyMajeurs += encodeURIComponent("\n ⚠️ À noter : Tout dossier incomplet à J 2 entraînera le report de l’intervention.\n");
-    bodyMajeurs += encodeURIComponent("\nSi vous rencontrez la moindre difficulté, notre équipe d'accueil reste disponible pour vous accompagner, directement à la clinique ou par mail à l'adresse : admissionsambu@clinique-stjeandedieu.com .\n");
-    bodyMajeurs += encodeURIComponent("Nous vous remercions de votre diligence et demeurons à votre disposition pour toute question.\n");
-    bodyMajeurs += encodeURIComponent("Cordialement,\n\n");
+    body += "\n ⚠️ À noter : Tout dossier incomplet à J 2 entraînera le report de l’intervention.\n";
+    body += "\nSi vous rencontrez la moindre difficulté, notre équipe d'accueil reste disponible pour vous accompagner, directement à la clinique ou par mail à l'adresse : admissionsambu@clinique-stjeandedieu.com .\n";
+    body += "Nous vous remercions de votre diligence et demeurons à votre disposition pour toute question.\n";
+    body += "Cordialement,\n\n";
 
+    return {
+        to: emailFieldMajeurs.value.trim() || '[email du patient]',
+        cc: '',
+        subject,
+        body
+    };
+}
 
-    let sendEmailMajeurs = document.querySelector('#send-email-majeurs');
-    sendEmailMajeurs.href = `mailto:${emailFieldMajeurs.value.trim()}?subject=${subjectWithReference}&body=${bodyMajeurs}`;
-    sendEmailMajeurs.style.display = "block";
+function majeursValide() {
+    return emailFieldMajeurs.value.trim() !== '' && emailFieldMajeurs.checkValidity() && missingDocumentsMajeurs().length > 0;
+}
+
+function majCompteurMajeurs() {
+    const count = missingDocumentsMajeurs().length;
+    countLabelMajeurs.textContent = count > 1 ? `${count} sélectionnés` : `${count} sélectionné`;
+    const all = count === documentCheckboxesMajeurs().length;
+    checkboxAllMajeurs.checked = all;
+    document.getElementById('labelCheckAllMajeurs').textContent = all ? "Tout décocher" : "Tout cocher";
+}
+
+const updateMajeurs = Mail.bind({
+    prefix: 'majeurs',
+    form: formulaireMajeurs,
+    build: buildMajeurs,
+    isValid: majeursValide
 });
 
-sendEmailMajeurs.addEventListener('click', () => {
-    setTimeout(() => {
-        formulaireMajeurs.reset();
-        sendEmailMajeurs.style.display = "none";
-        sendEmailMajeurs.setAttribute('href', '');
-        generateEmailMajeurs.disabled = true;
-    }, 5000)
+formulaireMajeurs.addEventListener('change', majCompteurMajeurs);
+formulaireMajeurs.addEventListener('reset', () => setTimeout(majCompteurMajeurs));
+
+checkboxAllMajeurs.addEventListener('change', () => {
+    documentCheckboxesMajeurs().forEach(checkbox => {
+        checkbox.checked = checkboxAllMajeurs.checked;
+    });
+    majCompteurMajeurs();
+    updateMajeurs();
 });
+
+majCompteurMajeurs();

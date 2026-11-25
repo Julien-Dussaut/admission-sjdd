@@ -16,11 +16,11 @@ function updatePin() {
     const isHome = currentId !== null && readHome() === currentId;
     const name = navLinks.find(link => link.getAttribute('href') === `#${currentId}`)?.textContent.trim() || 'cette page';
     pinButton.setAttribute('aria-pressed', String(isHome));
-    const label = isHome
-        ? `« ${name} » est la page d'accueil de ce poste. Cliquer pour retirer.`
-        : `Définir « ${name} » comme page d'accueil de ce poste`;
-    pinButton.title = label;
-    pinButton.setAttribute('aria-label', label);
+    pinButton.dataset.tip = isHome
+        ? `« ${name} » est la page d'accueil : cliquer pour retirer`
+        : `Définir « ${name} » comme page d'accueil`;
+    pinButton.setAttribute('aria-label', pinButton.dataset.tip);
+    document.body.dataset.page = currentId || '';
 }
 
 pinButton.addEventListener('click', () => {

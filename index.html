@@ -365,8 +365,19 @@
                             <li><span class="app app--hm">HM</span>Sur le nouvel écran, entrer les <strong>dates d'entrée et de sortie</strong> telles qu'elles sont affichées sur HM.</li>
                             <li><span class="app app--hm">HM</span>Cocher la case <strong>Accepté</strong>.</li>
                             <li><span class="app app--hm">HM</span>Dans le champ <strong>Contrat</strong>, choisir <strong>« Contrat complet »</strong>.</li>
-                            <li><span class="app app--hm">HM</span>La seule ligne qui doit, éventuellement, être modifiée est la ligne <strong class="term has-tip" tabindex="0" data-tip="CPC : la prise en charge de la chambre particulière.">CPC</strong>. Il s'agit de la prise en charge pour la chambre particulière. Soit le montant est indiqué clairement, soit c'est un pourcentage. La correspondance des pourcentages est présente sur la page <a href="#informations" data-goto="pmss">Informations</a> (bloc PMSS 2025).</li>
+                            <li><span class="app app--hm">HM</span>La seule ligne qui doit, éventuellement, être modifiée est la ligne <strong class="term has-tip" tabindex="0" data-tip="CPC : la prise en charge de la chambre particulière.">CPC</strong>. <span class="sign-red sign-red--inline">Seule la ligne CPC peut être modifiée</span> Il s'agit de la prise en charge pour la chambre particulière. Soit le montant est indiqué clairement, soit c'est un pourcentage. Dans ce cas, la correspondance des pourcentages est présente sur la page <a href="#informations" data-goto="pmss">Informations</a> (bloc PMSS 2025) : le montant à mettre dans HM est celui appelé <strong>« Part mutuelle »</strong>.</li>
                             <li><span class="app app--hm">HM</span>Cliquer ensuite sur <strong>Sauvegarder</strong>.</li>
+                        </ol>
+                    </div>
+                    <div class="proc-body" data-proc="Consultation des droits">
+                        <ol class="steps">
+                            <li><span class="app app--sesam">Sesam-Vitale</span>Cliquer sur le lien <strong>Consultation des droits</strong> dans le navigateur (Chrome, Firefox, Edge) : <a href="https://portail.sesam-vitale.fr/cdr/" target="_blank" rel="noopener noreferrer">https://portail.sesam-vitale.fr/cdr/</a></li>
+                            <li><span class="app app--sesam">Sesam-Vitale</span>Si le poste est utilisé par plusieurs personnes, vérifier bien que le <strong>nom</strong> correspond à la <strong class="term has-tip" tabindex="0" data-tip="CPE : Carte de Professionnel d'Établissement.">carte CPE</strong> insérée.</li>
+                            <li><span class="app app--sesam">Sesam-Vitale</span>Entrer le <strong>code PIN</strong> (unique à chaque carte) dans la fenêtre qui vient de s'ouvrir.</li>
+                            <li><span class="app app--sesam">Sesam-Vitale</span>Cliquer sur le <strong>grand rectangle</strong> qui comporte plusieurs logos de caisses de sécurité sociale.</li>
+                            <li><span class="app app--sesam">Sesam-Vitale</span>Entrer le <strong>nom</strong>, le <strong>prénom</strong> et la <strong>date de naissance</strong> du patient (<strong>JJMMAAAA</strong>) et cliquer sur <strong>Rechercher</strong> ou appuyer sur <strong>Entrée</strong>.</li>
+                            <li><span class="app app--sesam">Sesam-Vitale</span>Si la recherche ne donne rien, cliquer sur <strong>Retour au portail</strong>.</li>
+                            <li><span class="app app--sesam">Sesam-Vitale</span>Répéter la procédure en cliquant, à tour de rôle, sur <strong>chaque carré</strong> présent sous le grand rectangle.</li>
                         </ol>
                     </div>
                     <div class="proc-body" data-proc="Patient hors nomenclature">
@@ -733,7 +744,7 @@
                     <h2>Procédures</h2>
                     <ul>
                         <li>Choisir une procédure dans la liste, classée par groupes, ou la chercher par son nom.</li>
-                        <li>Chaque étape est numérotée et porte une pastille qui dit où agir : <strong>Expert</strong>, <strong>HM</strong>, <strong>4axes</strong>, <strong>Site</strong>, <strong>Outlook</strong> ou <strong>Documents</strong>.</li>
+                        <li>Chaque étape est numérotée et porte une pastille qui dit où agir : <strong>Expert</strong>, <strong>HM</strong>, <strong>4axes</strong>, <strong>Sesam-Vitale</strong>, <strong>Site</strong>, <strong>Outlook</strong> ou <strong>Documents</strong>.</li>
                         <li>Les bandeaux jaunes et rouges signalent les cas à traiter en priorité. Les procédures marquées « Bientôt » arrivent prochainement.</li>
                     </ul>
                 </section>

@@ -107,3 +107,45 @@ header nav a:focus-visible {
         overflow-x: auto;
     }
 }
+
+/* Page d'accueil du poste */
+.pin-home {
+    align-self: center;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.5rem;
+    padding: 0;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #8a8176;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.pin-home svg {
+    width: 18px;
+    height: 18px;
+}
+
+.pin-home:hover {
+    background-color: var(--tint);
+    color: var(--accent-text);
+}
+
+.pin-home[aria-pressed="true"] {
+    background-color: var(--tint);
+    border-color: var(--accent);
+    color: var(--accent-text);
+}
+
+.pin-home[aria-pressed="true"] svg {
+    fill: currentColor;
+}
+
+.pin-home:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+}

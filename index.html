@@ -319,7 +319,7 @@
                                     <li>Si le numéro n'est pas présent dans le champ et que l'appel INSI a réussi, il est disponible en passant la souris sur l'<strong>avatar</strong> en haut à gauche de la page.</li>
                                 </ul>
                             </li>
-                            <li><span class="app app--hm">HM</span>Les mineurs n'ayant pas de droit ouvert, il faut demander le <strong>numéro de sécurité sociale du parent</strong> sur lequel l'enfant est rattaché et faire l'<strong>appel CDRI</strong> avec ce numéro. Si le numéro est inconnu, se référer à la procédure <strong>« Consultation des droits »</strong>.</li>
+                            <li><span class="app app--hm">HM</span>Les mineurs n'ayant pas de droit ouvert, il faut demander le <strong>numéro de sécurité sociale du parent</strong> sur lequel l'enfant est rattaché et faire l'<strong>appel CDRI</strong> avec ce numéro. Si le numéro est inconnu, se référer à la procédure <a href="#procedures" data-proc-goto="Consultation des droits"><strong>« Consultation des droits »</strong></a>.</li>
                             <li><span class="app app--hm">HM</span>Une fois l'appel terminé, cliquer sur la <strong>pastille CDRI</strong> pour voir si le patient est exonéré de certains soins ou s'il est bénéficiaire de la <strong>CSS</strong> (nouveau nom de la CMU).</li>
                             <li><span class="app app--hm">HM</span><strong>Valider</strong> pour revenir à l'écran principal du séjour, cliquer sur <strong>Impressions</strong>, cocher uniquement <strong>Petites étiquettes</strong> et imprimer.</li>
                             <li><span class="app app--doc">Documents</span>Coller une étiquette sur la <strong>fiche suiveuse</strong> et mettre les autres dans le dossier avec les documents signés.</li>
@@ -372,12 +372,29 @@
                     <div class="proc-body" data-proc="Consultation des droits">
                         <ol class="steps">
                             <li><span class="app app--sesam">Sesam-Vitale</span>Cliquer sur le lien <strong>Consultation des droits</strong> dans le navigateur (Chrome, Firefox, Edge) : <a href="https://portail.sesam-vitale.fr/cdr/" target="_blank" rel="noopener noreferrer">https://portail.sesam-vitale.fr/cdr/</a></li>
-                            <li><span class="app app--sesam">Sesam-Vitale</span>Si le poste est utilisé par plusieurs personnes, vérifier bien que le <strong>nom</strong> correspond à la <strong class="term has-tip" tabindex="0" data-tip="CPE : Carte de Professionnel d'Établissement.">carte CPE</strong> insérée.</li>
+                            <li><span class="app app--sesam">Sesam-Vitale</span>Si le poste est utilisé par plusieurs personnes : <span class="sign-red sign-red--inline">Vérifier que le nom correspond à la <span class="term has-tip" tabindex="0" data-tip="CPE : Carte de Professionnel d'Établissement.">carte CPE</span> insérée</span></li>
                             <li><span class="app app--sesam">Sesam-Vitale</span>Entrer le <strong>code PIN</strong> (unique à chaque carte) dans la fenêtre qui vient de s'ouvrir.</li>
                             <li><span class="app app--sesam">Sesam-Vitale</span>Cliquer sur le <strong>grand rectangle</strong> qui comporte plusieurs logos de caisses de sécurité sociale.</li>
                             <li><span class="app app--sesam">Sesam-Vitale</span>Entrer le <strong>nom</strong>, le <strong>prénom</strong> et la <strong>date de naissance</strong> du patient (<strong>JJMMAAAA</strong>) et cliquer sur <strong>Rechercher</strong> ou appuyer sur <strong>Entrée</strong>.</li>
                             <li><span class="app app--sesam">Sesam-Vitale</span>Si la recherche ne donne rien, cliquer sur <strong>Retour au portail</strong>.</li>
                             <li><span class="app app--sesam">Sesam-Vitale</span>Répéter la procédure en cliquant, à tour de rôle, sur <strong>chaque carré</strong> présent sous le grand rectangle.</li>
+                        </ol>
+                    </div>
+                    <div class="proc-body" data-proc="CFE">
+                        <ol class="steps">
+                            <li><span class="app app--cfe">CFE</span>Se rendre sur le site de la CFE : <a href="https://www.cfe.fr/fr/etablissement-de-sante" target="_blank" rel="noopener noreferrer">https://www.cfe.fr/fr/etablissement-de-sante</a></li>
+                            <li><span class="app app--cfe">CFE</span>Entrer le <strong>numéro d'établissement</strong> (numéro FINESS) : <span class="copy-chip"><strong>750300121</strong><button type="button" class="copy-btn" data-copy="750300121" aria-label="Copier le FINESS"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></button></span></li>
+                            <li><span class="app app--cfe">CFE</span>Entrer le <strong>numéro de sécurité sociale</strong> du patient complet (avec la <strong>clé</strong>).</li>
+                            <li><span class="app app--cfe">CFE</span>Entrer la <strong>date d'entrée</strong>.</li>
+                            <li><span class="app app--cfe">CFE</span>Cliquer sur <strong>Suite</strong> (bouton peu visible : il se trouve en bas à droite, au-dessus du bandeau bleu).</li>
+                            <li><span class="app app--cfe">CFE</span>Sur l'écran suivant, vérifier que l'<strong>établissement</strong> et le <strong>patient</strong> sont corrects.</li>
+                            <li><span class="app app--cfe">CFE</span>Cliquer sur <strong>Suite</strong> (même emplacement qu'avant).</li>
+                            <li><span class="app app--cfe">CFE</span>Sur l'écran suivant, mettre le <strong>numéro d'entrée</strong> (numéro de dossier HM).</li>
+                            <li><span class="app app--cfe">CFE</span>Cocher la case qui correspond au <strong>séjour</strong>.</li>
+                            <li><span class="app app--cfe">CFE</span>Entrer la <strong>discipline médico-tarifaire</strong> : <strong>137</strong>.</li>
+                            <li><span class="app app--cfe">CFE</span>Cocher <strong>Non</strong> sur toutes les autres cases et cliquer sur <strong>Suite</strong>.</li>
+                            <li><span class="app app--cfe">CFE</span>Cliquer sur <strong>Suite</strong>, puis sur <strong>Valider la demande</strong> dans la fenêtre qui s'ouvre.</li>
+                            <li><span class="app app--doc">Documents</span>Le site affiche le <strong>pourcentage pris en charge</strong> : faire une <strong>capture d'écran</strong>, l'imprimer et l'ajouter dans le <strong>dossier papier</strong>.</li>
                         </ol>
                     </div>
                     <div class="proc-body" data-proc="Patient hors nomenclature">
@@ -744,7 +761,7 @@
                     <h2>Procédures</h2>
                     <ul>
                         <li>Choisir une procédure dans la liste, classée par groupes, ou la chercher par son nom.</li>
-                        <li>Chaque étape est numérotée et porte une pastille qui dit où agir : <strong>Expert</strong>, <strong>HM</strong>, <strong>4axes</strong>, <strong>Sesam-Vitale</strong>, <strong>Site</strong>, <strong>Outlook</strong> ou <strong>Documents</strong>.</li>
+                        <li>Chaque étape est numérotée et porte une pastille qui dit où agir : <strong>Expert</strong>, <strong>HM</strong>, <strong>4axes</strong>, <strong>Sesam-Vitale</strong>, <strong>CFE</strong>, <strong>Site</strong>, <strong>Outlook</strong> ou <strong>Documents</strong>.</li>
                         <li>Les bandeaux jaunes et rouges signalent les cas à traiter en priorité. Les procédures marquées « Bientôt » arrivent prochainement.</li>
                     </ul>
                 </section>

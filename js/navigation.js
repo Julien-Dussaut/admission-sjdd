@@ -117,3 +117,19 @@ document.addEventListener('click', event => {
     navLink.click();
     setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 450);
 });
+
+// Lien vers une procédure précise : ouvre la page Procédures puis sélectionne la procédure
+document.addEventListener('click', event => {
+    const link = event.target.closest('a[data-proc-goto]');
+    if (!link) {
+        return;
+    }
+    event.preventDefault();
+    const navLink = navLinks.find(item => item.getAttribute('href') === link.getAttribute('href'));
+    const button = [...document.querySelectorAll('.proc-item')].find(item => item.dataset.proc === link.dataset.procGoto);
+    if (!navLink || !button) {
+        return;
+    }
+    navLink.click();
+    setTimeout(() => button.click(), 300);
+});

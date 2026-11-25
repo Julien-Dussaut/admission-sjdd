@@ -848,3 +848,19 @@
     background-color: #e6dcfa;
     color: #3d1f80;
 }
+
+.app--cfe {
+    background-color: #f7d4e6;
+    color: #7a1450;
+}
+
+.copy-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0 0.125rem 0 0.625rem;
+    background-color: #f6f2ec;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    vertical-align: middle;
+}

@@ -5,27 +5,35 @@
     const slides = [...modal.querySelectorAll('.help-slide')];
     const prev = document.getElementById('help-prev');
     const next = document.getElementById('help-next');
-    const dots = document.getElementById('help-dots');
+    const tabs = document.getElementById('help-tabs');
     const opener = document.getElementById('open-help');
     let index = 0;
     let lastFocus = null;
 
+    const LABELS = {
+        'Les outils en haut de page': 'Outils',
+        'Relance mineurs': 'Mineurs',
+        'Relance majeurs': 'Majeurs'
+    };
+
     slides.forEach((slide, i) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.setAttribute('aria-label', `Aller à : ${slide.querySelector('h2').textContent}`);
-        dot.addEventListener('click', () => show(i));
-        dots.appendChild(dot);
+        const title = slide.querySelector('h2').textContent;
+        const tab = document.createElement('button');
+        tab.type = 'button';
+        tab.setAttribute('role', 'tab');
+        tab.textContent = LABELS[title] || title;
+        tab.addEventListener('click', () => show(i));
+        tabs.appendChild(tab);
     });
 
     function show(i) {
-        index = Math.max(0, Math.min(slides.length - 1, i));
+        // Carrousel infini : on boucle entre le début et la fin
+        index = (i + slides.length) % slides.length;
         slides.forEach((slide, n) => { slide.hidden = n !== index; });
-        [...dots.children].forEach((dot, n) => dot.setAttribute('aria-current', String(n === index)));
-        prev.setAttribute('aria-disabled', String(index === 0));
-        next.setAttribute('aria-disabled', String(index === slides.length - 1));
-        prev.disabled = index === 0;
-        next.disabled = index === slides.length - 1;
+        [...tabs.children].forEach((tab, n) => {
+            tab.setAttribute('aria-selected', String(n === index));
+            tab.tabIndex = n === index ? 0 : -1;
+        });
     }
 
     function open() {
@@ -54,7 +62,7 @@
         else if (event.key === 'ArrowRight') show(index + 1);
         else if (event.key === 'ArrowLeft') show(index - 1);
         else if (event.key === 'Tab') {
-            const focusables = [...content.querySelectorAll('button:not(:disabled)')];
+            const focusables = [...content.querySelectorAll('button')];
             const first = focusables[0];
             const last = focusables[focusables.length - 1];
             if (event.shiftKey && (document.activeElement === first || document.activeElement === content)) {

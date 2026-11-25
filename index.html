@@ -665,8 +665,9 @@
                 <span class="help-count">Aide</span>
                 <button type="button" id="help-close" class="help-close" aria-label="Fermer l'aide">×</button>
             </div>
+            <div class="help-tabs" id="help-tabs" role="tablist" aria-label="Pages de l'aide"></div>
             <div id="help-slides">
-                <section class="help-slide" data-help="Outils du header" hidden>
+                <section class="help-slide" role="tabpanel" data-help="Outils du header" hidden>
                     <h2 id="help-title">Les outils en haut de page</h2>
                     <ul>
                         <li><strong>Journée en préparation :</strong> « Modifier » change la date utilisée dans les emails. Une confirmation de la date est demandée toutes les 30 minutes.</li>
@@ -675,7 +676,7 @@
                         <li><strong>Confidentialité :</strong> aucune information patient n'est enregistrée. Seuls la date, la page d'accueil et la taille du texte sont gardées dans le navigateur.</li>
                     </ul>
                 </section>
-                <section class="help-slide" data-help="informations" hidden>
+                <section class="help-slide" role="tabpanel" data-help="informations" hidden>
                     <h2>Informations</h2>
                     <ul>
                         <li>Les numéros utiles, les chambres, les exonérations PAT et les infos générales de la clinique sont réunis ici.</li>
@@ -684,7 +685,7 @@
                         <li><strong>PMSS 2025 :</strong> saisir le pourcentage du PMSS pris en charge par la mutuelle pour une hospitalisation. Le bloc donne la part de la mutuelle, puis le reste à charge en chambre confort et en chambre suite.</li>
                     </ul>
                 </section>
-                <section class="help-slide" data-help="procedures" hidden>
+                <section class="help-slide" role="tabpanel" data-help="procedures" hidden>
                     <h2>Procédures</h2>
                     <ul>
                         <li>Choisir une procédure dans la liste, classée par groupes, ou la chercher par son nom.</li>
@@ -692,7 +693,7 @@
                         <li>Les bandeaux jaunes et rouges signalent les cas à traiter en priorité. Les procédures marquées « Bientôt » arrivent prochainement.</li>
                     </ul>
                 </section>
-                <section class="help-slide" data-help="mineurs" hidden>
+                <section class="help-slide" role="tabpanel" data-help="mineurs" hidden>
                     <h2>Relance mineurs</h2>
                     <ul>
                         <li>Cocher les documents manquants. Ils sont regroupés en Identité, Administratif et Couverture sociale, et « Tout cocher » les sélectionne tous.</li>
@@ -701,21 +702,21 @@
                         <li>L'aperçu se met à jour en direct. « Envoyer l'email » ouvre la messagerie, « Copier le texte » copie le contenu.</li>
                     </ul>
                 </section>
-                <section class="help-slide" data-help="majeurs" hidden>
+                <section class="help-slide" role="tabpanel" data-help="majeurs" hidden>
                     <h2>Relance majeurs</h2>
                     <ul>
                         <li>Même principe que pour les mineurs, avec l'email du patient.</li>
                         <li>Madame / Monsieur règle la formule d'appel. Sans choix, l'email commence par « Madame, Monsieur ».</li>
                     </ul>
                 </section>
-                <section class="help-slide" data-help="devis-nas" hidden>
+                <section class="help-slide" role="tabpanel" data-help="devis-nas" hidden>
                     <h2>Devis NAS</h2>
                     <ul>
                         <li>Saisir le nom, le prénom, la date de naissance et la description de l'intervention.</li>
                         <li>Le message est prêt à envoyer, avec le bon destinataire. « Envoyer l'email » l'ouvre dans la messagerie, il reste à vérifier la signature.</li>
                     </ul>
                 </section>
-                <section class="help-slide" data-help="devis-hn" hidden>
+                <section class="help-slide" role="tabpanel" data-help="devis-hn" hidden>
                     <h2>Devis HN</h2>
                     <ul>
                         <li>Saisir le nom, le prénom et la date de naissance, puis choisir le chirurgien dans la liste.</li>
@@ -725,7 +726,7 @@
             </div>
             <div class="help-nav">
                 <button type="button" id="help-prev" class="btn btn-secondary">Précédent</button>
-                <div class="help-dots" id="help-dots"></div>
+                <span class="help-hint" aria-hidden="true">← → pour naviguer</span>
                 <button type="button" id="help-next" class="btn btn-primary">Suivant</button>
             </div>
         </div>

@@ -485,6 +485,27 @@
             </div>
             <div class="cols">
                 <form id="mineur-form" class="card col-6">
+                    <div class="form-row form-row--top" style="margin-bottom: 1.375rem">
+                        <div class="field">
+                            <label for="files-number-mineurs">Numéro de dossier</label>
+                            <input type="text" name="files-number" id="files-number-mineurs" placeholder="Numéro de dossier" autocomplete="off">
+                        </div>
+                        <div class="field">
+                            <label for="mail">Email parent</label>
+                            <div class="field-row">
+                                <input type="email" name="mail" id="mail" placeholder="parent@exemple.fr" required autocomplete="off">
+                                <button type="button" class="icon-btn" id="add-parent2" aria-label="Ajouter un second parent" aria-expanded="false" aria-controls="parent2-field"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
+                            </div>
+                        </div>
+                        <div class="field field--second" id="parent2-field" hidden>
+                            <label for="mail2">Email second parent</label>
+                            <div class="field-row">
+                                <input type="email" name="mail2" id="mail2" placeholder="second-parent@exemple.fr" autocomplete="off">
+                                <button type="button" class="icon-btn" id="remove-parent2" aria-label="Retirer le second parent"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+                            </div>
+                            <span class="field-hint">Les deux adresses recevront l'email.</span>
+                        </div>
+                    </div>
                     <div class="doc-head">
                         <h2>Documents manquants</h2>
                         <div class="doc-head-tools">
@@ -548,27 +569,6 @@
                             <label class="doc-tile"><input type="checkbox" name="mutuelle" id="mutuelle"><span>Carte mutuelle</span></label>
                         </div>
                     </div>
-                    <div class="form-row form-row--top" style="margin-top: 1.5rem">
-                        <div class="field">
-                            <label for="files-number-mineurs">Numéro de dossier</label>
-                            <input type="text" name="files-number" id="files-number-mineurs" placeholder="Numéro de dossier" autocomplete="off">
-                        </div>
-                        <div class="field">
-                            <label for="mail">Email parent</label>
-                            <div class="field-row">
-                                <input type="email" name="mail" id="mail" placeholder="parent@exemple.fr" required autocomplete="off">
-                                <button type="button" class="icon-btn" id="add-parent2" aria-label="Ajouter un second parent" aria-expanded="false" aria-controls="parent2-field"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
-                            </div>
-                        </div>
-                        <div class="field field--second" id="parent2-field" hidden>
-                            <label for="mail2">Email second parent</label>
-                            <div class="field-row">
-                                <input type="email" name="mail2" id="mail2" placeholder="second-parent@exemple.fr" autocomplete="off">
-                                <button type="button" class="icon-btn" id="remove-parent2" aria-label="Retirer le second parent"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-                            </div>
-                            <span class="field-hint">Les deux adresses recevront l'email.</span>
-                        </div>
-                    </div>
                 </form>
                 <aside class="card col-5" aria-label="Aperçu de l'email">
                     <div class="card-head"><h2>Email prêt à envoyer</h2><span class="live-badge">Aperçu en direct</span></div>
@@ -610,6 +610,10 @@
                             <input type="text" name="files-number" id="files-number-majeurs" placeholder="Numéro de dossier" autocomplete="off">
                         </div>
                     </div>
+                    <div class="field" style="margin-bottom: 1.375rem">
+                        <label for="mailMajeurs">Email patient</label>
+                        <input type="email" name="mailMajeurs" id="mailMajeurs" placeholder="patient@exemple.fr" required autocomplete="off">
+                    </div>
                     <div class="doc-head">
                         <h2>Documents manquants</h2>
                         <div class="doc-head-tools">
@@ -639,10 +643,6 @@
                             <label class="doc-tile"><input type="checkbox" name="vitale-majeur" id="vitale-majeur"><span>Carte vitale</span></label>
                             <label class="doc-tile"><input type="checkbox" name="mutuelle-majeur" id="mutuelle-majeur"><span>Carte mutuelle</span></label>
                         </div>
-                    </div>
-                    <div class="field" style="margin-top: 1.5rem">
-                        <label for="mailMajeurs">Email patient</label>
-                        <input type="email" name="mailMajeurs" id="mailMajeurs" placeholder="patient@exemple.fr" required autocomplete="off">
                     </div>
                 </form>
                 <aside class="card col-5" aria-label="Aperçu de l'email">

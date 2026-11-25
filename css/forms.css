@@ -785,3 +785,29 @@
 .proc-body > .seg {
     margin-top: 0;
 }
+
+/* Pastille 4axes et liste de champs */
+.app--quatre {
+    background-color: #d9f2ef;
+    color: #0b5f58;
+}
+
+.steps a {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    overflow-wrap: anywhere;
+}
+
+.steps a:hover {
+    color: var(--ink);
+}
+
+.steps-fields {
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+.steps-fields li {
+    margin: 0.375rem 0;
+}

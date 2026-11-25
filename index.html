@@ -325,6 +325,36 @@
                             <li><span class="app app--doc">Documents</span>Coller une étiquette sur la <strong>fiche suiveuse</strong> et mettre les autres dans le dossier avec les documents signés.</li>
                         </ol>
                     </div>
+                    <div class="proc-body" data-proc="Demande de PEC (Prise En Charge)">
+                        <ol class="steps">
+                            <li><span class="app app--hm">HM</span>Dans HM, sur le dossier du séjour, aller dans l'onglet <strong>Synthèse générale</strong>.</li>
+                            <li><span class="app app--hm">HM</span>Ouvrir la <strong>carte de mutuelle</strong> (si elle est présente).</li>
+                            <li><span class="app app--quatre">4axes</span>Aller ensuite sur 4axes (<a href="https://4axes.net/entite/liste" target="_blank" rel="noopener noreferrer">https://4axes.net/entite/liste</a>).</li>
+                            <li><span class="app app--quatre">4axes</span>Sur l'onglet <strong>Annuaire</strong>, dans le champ <strong>« Mots clés »</strong>, entrer le <strong>nom de la mutuelle</strong> tel qu'il apparaît sur la carte de mutuelle.</li>
+                            <li><span class="app app--quatre">4axes</span>La liste des mutuelles correspondantes s'affiche.</li>
+                            <li><span class="app app--quatre">4axes</span>Choisir la ligne où le <strong>code postal</strong> correspond à l'adresse de la mutuelle (généralement présent sur la carte de mutuelle).</li>
+                            <li><span class="app app--quatre">4axes</span>À droite de la ligne, il y a soit une <strong>icône d'enveloppe</strong> (la demande sera envoyée à la mutuelle directement), soit un <strong>point d'exclamation</strong> (la demande sera envoyée à un gestionnaire global). Cliquer sur l'icône, peu importe laquelle est affichée.</li>
+                            <li><span class="app app--quatre">4axes</span>Si les demandes de PEC pour la mutuelle sont gérées par un <strong>gestionnaire global</strong>, cela est indiqué sur l'écran suivant. Le nom du gestionnaire apparaît sur cet écran et son logo apparaît sur la carte de mutuelle. Si ce n'est pas le cas, c'est la mutuelle qui reçoit directement la demande : il suffit de lire l'écran pour trouver où cliquer.</li>
+                            <li><span class="app app--quatre">4axes</span>Sur l'écran de demande, renseigner les champs suivants :
+                                <ul class="steps-sub steps-fields">
+                                    <li><strong>Date d'entrée :</strong> date à laquelle le patient sera admis.</li>
+                                    <li><strong>Date prévisionnelle de sortie :</strong> compter deux semaines à partir de la date d'entrée.</li>
+                                    <li><strong>N° d'entrée :</strong> c'est le numéro du dossier HM.</li>
+                                    <li><strong>N° adhérent :</strong> il est généralement présent sur la carte de mutuelle mais pas toujours. Même s'il est facultatif, il faut le mettre si on l'a.</li>
+                                    <li><strong>NIR adhérent :</strong> c'est le numéro de sécurité sociale de l'assuré principal auprès de la mutuelle et c'est, généralement, le premier dans la liste des personnes sur la carte de mutuelle. Son nom peut aussi apparaître sous le nom de la mutuelle.</li>
+                                    <li><strong>Nom adhérent :</strong> même chose que ci-dessus sauf qu'il s'agit du nom de famille.</li>
+                                    <li><strong>NIR bénéficiaire :</strong> c'est le numéro de sécurité sociale du patient (si le patient et l'adhérent sont la même personne, il faut quand même remettre cette info).</li>
+                                    <li><strong>Nom bénéficiaire :</strong> nom de famille du patient (si le patient et l'adhérent sont la même personne, il faut quand même remettre cette info).</li>
+                                    <li><strong>Prénom bénéficiaire :</strong> prénom du patient.</li>
+                                    <li><strong>Date de naissance :</strong> date de naissance du patient.</li>
+                                    <li><strong>Nature hospitalisation :</strong> choisir <strong>« Chirurgicale »</strong>.</li>
+                                    <li><strong>Mode de traitement :</strong> choisir <strong>« Hospitalisation complète »</strong>.</li>
+                                </ul>
+                            </li>
+                            <li><span class="app app--quatre">4axes</span>Cliquer sur <strong>Envoyer</strong>.</li>
+                            <li><span class="app app--quatre">4axes</span>Le site demande de vérifier la demande : la vérifier et cliquer sur <strong>Envoyer</strong>.</li>
+                        </ol>
+                    </div>
                     <div class="proc-body" data-proc="Patient hors nomenclature">
                         <ol class="steps">
                             <li><span class="app app--site">Site</span>Sur ce site, aller dans l'onglet <strong>Devis HN</strong>.</li>
@@ -689,7 +719,7 @@
                     <h2>Procédures</h2>
                     <ul>
                         <li>Choisir une procédure dans la liste, classée par groupes, ou la chercher par son nom.</li>
-                        <li>Chaque étape est numérotée et porte une pastille qui dit où agir : <strong>Expert</strong>, <strong>HM</strong>, <strong>Site</strong>, <strong>Outlook</strong> ou <strong>Documents</strong>.</li>
+                        <li>Chaque étape est numérotée et porte une pastille qui dit où agir : <strong>Expert</strong>, <strong>HM</strong>, <strong>4axes</strong>, <strong>Site</strong>, <strong>Outlook</strong> ou <strong>Documents</strong>.</li>
                         <li>Les bandeaux jaunes et rouges signalent les cas à traiter en priorité. Les procédures marquées « Bientôt » arrivent prochainement.</li>
                     </ul>
                 </section>

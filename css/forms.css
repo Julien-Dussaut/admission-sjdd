@@ -917,3 +917,8 @@
 .steps > li.step--alert {
     padding-left: 3.5rem;
 }
+
+.app--borne {
+    background-color: #d9f0ec;
+    color: #0f5a50;
+}

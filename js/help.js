@@ -3,7 +3,6 @@
     const modal = document.getElementById('help-modal');
     const content = document.getElementById('help-content');
     const slides = [...modal.querySelectorAll('.help-slide')];
-    const count = document.getElementById('help-count');
     const prev = document.getElementById('help-prev');
     const next = document.getElementById('help-next');
     const dots = document.getElementById('help-dots');
@@ -23,7 +22,6 @@
         index = Math.max(0, Math.min(slides.length - 1, i));
         slides.forEach((slide, n) => { slide.hidden = n !== index; });
         [...dots.children].forEach((dot, n) => dot.setAttribute('aria-current', String(n === index)));
-        count.textContent = `${index + 1} / ${slides.length}`;
         prev.setAttribute('aria-disabled', String(index === 0));
         next.setAttribute('aria-disabled', String(index === slides.length - 1));
         prev.disabled = index === 0;

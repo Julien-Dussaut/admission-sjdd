@@ -55,7 +55,6 @@
     max-height: calc(100vh - 2rem);
     padding: 1.25rem 1.5rem 1.5rem;
     background-color: #fff;
-    border-top: 4px solid var(--accent);
     border-radius: 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     outline: none;

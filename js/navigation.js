@@ -101,3 +101,19 @@ navLinks.forEach(link => {
         fadeSection(sectionToActivate, [{ opacity: 0 }, { opacity: 1 }]);
     });
 });
+
+// Liens internes entre pages : ouvre la page cible puis fait défiler jusqu'au bloc visé
+document.addEventListener('click', event => {
+    const link = event.target.closest('a[data-goto]');
+    if (!link) {
+        return;
+    }
+    event.preventDefault();
+    const navLink = navLinks.find(item => item.getAttribute('href') === link.getAttribute('href'));
+    const target = document.getElementById(link.dataset.goto);
+    if (!navLink || !target) {
+        return;
+    }
+    navLink.click();
+    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 450);
+});
